@@ -3,132 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte | Futuro Sustentável</title>
-    <style>
-        /* Estilos Gerais */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { line-height: 1.6; color: #333; }
-        
-        /* Cores Temáticas */
-        :root {
-            --primary: #2d5a27; /* Verde Floresta */
-            --secondary: #8da242; /* Verde Lima Suave */
-            --accent: #d4a373; /* Tom de Terra */
-            --light: #f4f9f1;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
-        nav a:hover { color: var(--secondary); }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 700px; }
-
-        /* Seções de Conteúdo */
-        .container { padding: 4rem 10%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 3rem; }
-        
-        .card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            border-bottom: 5px solid var(--primary);
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--primary); margin-bottom: 1rem; }
-
-        /* Footer */
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { flex-direction: column; }
-            nav { margin-top: 1rem; }
-        }
-    </style>
+    <title>Agro Forte | Sustentabilidade</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo"><h2>AGRO<span>FORTE</span></h2></div>
+    <header id="header">
+        <div class="logo">Agro<span>Forte</span></div>
         <nav>
-            <a href="#inicio">Início</a>
-            <a href="#pilares">Pilares</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Equilíbrio</a></li>
+                <li><a href="#tecnologia">Tecnologia</a></li>
+                <li><a href="https://youtu.be/jXYN97GMoGM?si=kQt8x2QOuZ9afNHJ" target="_blank" class="btn-video">Assistir Vídeo</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="hero" id="inicio">
-        <h1>Produzir para Alimentar, Preservar para Existir</h1>
-        <p>O equilíbrio perfeito entre a força do campo e a inteligência da sustentabilidade.</p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>O Futuro é Sustentável</h1>
+            <p>Unindo a força da produção agrícola com a preservação do meio ambiente.</p>
+            <a href="https://youtu.be/jXYN97GMoGM?si=kQt8x2QOuZ9afNHJ" target="_blank" class="cta-button">Conheça nossa visão</a>
+        </div>
     </section>
 
-    <main class="container" id="pilares">
-        <h2>Nossos Pilares</h2>
-        <p>Como transformamos o futuro do agronegócio hoje.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <h3>Produção Consciente</h3>
-                <p>Uso de tecnologias de precisão para otimizar recursos, reduzindo o desperdício de água e insumos.</p>
-            </div>
-            <div class="card">
-                <h3>Bioeconomia</h3>
-                <p>Integração de soluções biológicas para o controle de pragas e regeneração do solo.</p>
-            </div>
-            <div class="card">
-                <h3>Energia Limpa</h3>
-                <p>Implementação de matrizes solares e biomassa para tornar as fazendas autossuficientes e carbono neutras.</p>
+    <section id="sobre" class="content-section">
+        <h2>Produção & Meio Ambiente</h2>
+        <div class="container">
+            <div class="text-box">
+                <p>O agro forte entende que o solo, a água e a biodiversidade são seus maiores ativos. O equilíbrio não é apenas um desejo, é a base da segurança alimentar do amanhã.</p>
             </div>
         </div>
-    </main>
-
-    <section id="sobre" style="background-color: var(--primary); color: white; padding: 4rem 10%;">
-        <h2>O Equilíbrio é o Nosso Norte</h2>
-        <br>
-        <p>Acreditamos que o "Agro Forte" não exclui o "Meio Ambiente". Pelo contrário, a terra saudável é o ativo mais valioso do produtor. Nosso foco é promover práticas que garantam a segurança alimentar global enquanto protegemos a biodiversidade dos nossos biomas.</p>
     </section>
 
     <footer>
-        <p>&copy; 2026 Agro Forte - Futuro Sustentável. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Agro Forte - Futuro Sustentável</p>
     </footer>
 
+    <script src="main.js"></script>
 </body>
 </html>
