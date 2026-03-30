@@ -386,3 +386,48 @@ section {
     padding: 1rem;
     border: 2px solid #e0e0e0;
     border-radius:
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 150px 20px 100px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        margin-top: 3rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Active link style */
+.nav-menu a.active {
+    color: #4CAF50 !important;
+    font-weight: 700;
+}
