@@ -1,44 +1,203 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte | Sustentabilidade</title>
+    <title>Agro Forte - Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <header id="header">
-        <div class="logo">Agro<span>Forte</span></div>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Equilíbrio</a></li>
-                <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><a href="https://youtu.be/jXYN97GMoGM?si=kQt8x2QOuZ9afNHJ" target="_blank" class="btn-video">Assistir Vídeo</a></li>
-            </ul>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>AgroForte</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#video">Vídeo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>O Futuro é Sustentável</h1>
-            <p>Unindo a força da produção agrícola com a preservação do meio ambiente.</p>
-            <a href="https://youtu.be/jXYN97GMoGM?si=kQt8x2QOuZ9afNHJ" target="_blank" class="cta-button">Conheça nossa visão</a>
+            <h1>Agro Forte<br><span>Futuro Sustentável</span></h1>
+            <p>Equilíbrio perfeito entre produção agrícola de alta performance e preservação ambiental</p>
+            <div class="hero-buttons">
+                <a href="#solucoes" class="btn btn-primary">Nossas Soluções</a>
+                <a href="#video" class="btn btn-secondary">Assista o Vídeo</a>
+            </div>
         </div>
-    </section>
-
-    <section id="sobre" class="content-section">
-        <h2>Produção & Meio Ambiente</h2>
-        <div class="container">
-            <div class="text-box">
-                <p>O agro forte entende que o solo, a água e a biodiversidade são seus maiores ativos. O equilíbrio não é apenas um desejo, é a base da segurança alimentar do amanhã.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>+30%</h3>
+                <p>Produtividade</p>
+            </div>
+            <div class="stat">
+                <h3>-40%</h3>
+                <p>Uso de Água</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Tracibilidade</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Agro Forte - Futuro Sustentável</p>
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title">Nossa Missão</h2>
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h3>Produção + Sustentabilidade = AgroForte</h3>
+                    <p>Desenvolvemos tecnologias e práticas que revolucionam a agricultura, garantindo máxima produtividade sem comprometer o meio ambiente. Nosso compromisso é com o futuro do planeta e da alimentação mundial.</p>
+                    <div class="sobre-features">
+                        <div class="feature">
+                            <i class="fas fa-seedling"></i>
+                            <span>Agricultura de Precisão</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-recycle"></i>
+                            <span>Economia Circular</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Proteção Ambiental</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluções Section -->
+    <section id="solucoes" class="solucoes">
+        <div class="container">
+            <h2 class="section-title">Nossas Soluções</h2>
+            <div class="solucoes-grid">
+                <div class="solucoes-card">
+                    <i class="fas fa-satellite"></i>
+                    <h3>Monitoramento por Satélite</h3>
+                    <p>Acompanhamento em tempo real da saúde das plantações e otimização de recursos.</p>
+                </div>
+                <div class="solucoes-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Irrigação Inteligente</h3>
+                    <p>Sistema que reduz em até 40% o consumo de água mantendo a produtividade.</p>
+                </div>
+                <div class="solucoes-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Automação Agrícola</h3>
+                    <p>Robôs e drones que trabalham 24h para máxima eficiência operacional.</p>
+                </div>
+                <div class="solucoes-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Análise de Dados</h3>
+                    <p>IA que prevê safras e otimiza toda a cadeia produtiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeo Section -->
+    <section id="video" class="video-section">
+        <div class="container">
+            <h2 class="section-title">Conheça Nossa Tecnologia</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jXYN97GMoGM?si=kQt8x2QOuZ9afNHJ" 
+                        title="Agro Forte - Tecnologia Sustentável" 
+                        frameborder="0" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p class="video-desc">Descubra como estamos transformando a agricultura brasileira com tecnologia de ponta!</p>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <div class="contato-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(11) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contato@agroforte.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>Rua das Plantas, 123<br>São Paulo - SP</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contato-form">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu Email" required>
+                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-leaf"></i>
+                    <span>AgroForte - Futuro Sustentável</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Início</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#solucoes">Soluções</a>
+                    <a href="#contato">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AgroForte. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="main.js"></script>
