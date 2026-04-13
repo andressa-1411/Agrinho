@@ -12,10 +12,11 @@
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <h2>🌱 Agro Sustentável</h2>
+                <h2>Agro Sustentável</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#pilares">Pilares</a></li>
                 <li><a href="#beneficios">Benefícios</a></li>
             </ul>
@@ -47,7 +48,7 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="container">
-            <h2>🌿 O Agro Sustentável em Ação</h2>
+            <h2>Conheça o Agro Sustentável em Ação</h2>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/jXYN97GMoGM?si=iQBYczDSQRgFvDbz" 
                         title="YouTube video player" 
@@ -59,11 +60,17 @@
         </div>
     </section>
 
-    <!-- Main Text Section -->
-    <section class="main-text">
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre-section">
         <div class="container">
-            <div class="text-content">
-                <p><strong>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF).</strong> Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h2>O Agro Forte e Sustentável</h2>
+                    <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF). Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
+                </div>
+                <div class="sobre-image">
+                    <img src="https://mgagro.net/wp-content/uploads/2023/10/praticas-agricolas-sustentaveis.jpg" alt="Práticas Agrícolas Sustentáveis">
+                </div>
             </div>
         </div>
     </section>
@@ -71,7 +78,7 @@
     <!-- Pilares Section -->
     <section id="pilares" class="pilares-section">
         <div class="container">
-            <h2>🏛️ Pilares do Agro Sustentável</h2>
+            <h2>Pilares do Agro Sustentável</h2>
             <div class="pilares-grid">
                 <div class="pilar-card">
                     <div class="pilar-icon">🚀</div>
@@ -91,7 +98,7 @@
                 <div class="pilar-card">
                     <div class="pilar-icon">📈</div>
                     <h3>Valorização e ESG</h3>
-                    <p>Adoção de práticas ESG (Ambiental, Social e Governança) para aumentar o valor da produção e facilitar o acesso a crédito rural.</p>
+                    <p>Adoção de práticas ESG para aumentar o valor da produção e facilitar o acesso a crédito rural.</p>
                 </div>
                 <div class="pilar-card">
                     <div class="pilar-icon">🏆</div>
@@ -105,25 +112,22 @@
     <!-- Benefícios Section -->
     <section id="beneficios" class="beneficios-section">
         <div class="container">
-            <h2>✨ Benefícios da Produção Sustentável</h2>
+            <h2>Benefícios da Produção Sustentável</h2>
             <div class="beneficios-grid">
                 <div class="beneficio-card">
                     <div class="beneficio-icon">🌍</div>
                     <h3>Acesso a Mercados</h3>
                     <p>Certificações ambientais abrem portas para mercados internacionais exigentes.</p>
-                    <span class="percent">+85%</span>
                 </div>
                 <div class="beneficio-card">
                     <div class="beneficio-icon">💰</div>
                     <h3>Eficiência e Rentabilidade</h3>
                     <p>Adoção de práticas sustentáveis aumenta a produtividade e reduz o uso de agrotóxicos.</p>
-                    <span class="percent">+92%</span>
                 </div>
                 <div class="beneficio-card">
                     <div class="beneficio-icon">🌱</div>
                     <h3>Futuro das Gerações</h3>
                     <p>Garantia de recursos naturais para a continuidade da atividade agrícola.</p>
-                    <span class="percent">+98%</span>
                 </div>
             </div>
         </div>
@@ -134,8 +138,8 @@
         <div class="container">
             <p>&copy; 2024 Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram">📸</a>
-                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#">Instagram</a>
+                <a href="#">Instagram</a>
             </div>
         </div>
     </footer>
@@ -171,7 +175,7 @@
 
         observer.observe(document.querySelector('.hero-stats'));
 
-        // Smooth scroll para navegação
+        // Smooth scroll para links de navegação
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
