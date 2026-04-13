@@ -323,3 +323,6 @@ body.font-large {
     left: -100%;
     width: 100%;
     height
+    * {
+    margin: 0;
+    padding
