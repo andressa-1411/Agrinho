@@ -53,7 +53,7 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
@@ -63,7 +63,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 50%, #AED581 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,24 +80,18 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
     pointer-events: none;
 }
 
-.hero-content {
-    max-width: 800px;
-    z-index: 2;
-    position: relative;
-}
-
-.hero h1 {
+.hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.hero h2 {
+.hero-content h2 {
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 3rem;
@@ -123,31 +117,31 @@ body {
     display: block;
     font-size: 3rem;
     font-weight: 700;
-    color: #FFF;
+    color: #fff;
     margin-bottom: 0.5rem;
 }
 
 .stat p {
     font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
+    opacity: 0.9;
 }
 
 /* Video Section */
 .video-section {
-    padding: 5rem 0;
-    background: #F8F9FA;
+    padding: 100px 0;
+    background: #f8f9fa;
 }
 
 .video-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #2E7D32;
     margin-bottom: 3rem;
+    color: #2E7D32;
 }
 
 .video-container {
-    max-width: 900px;
+    position: relative;
+    max-width: 800px;
     margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
@@ -156,41 +150,52 @@ body {
 
 .video-container iframe {
     width: 100%;
-    height: 500px;
+    height: 450px;
     display: block;
 }
 
-/* Main Text */
-.main-text {
-    padding: 5rem 0;
+/* Sobre Section */
+.sobre-section {
+    padding: 100px 0;
     background: white;
 }
 
-.text-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+.sobre-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.text-content p {
-    font-size: 1.3rem;
+.sobre-text h2 {
+    font-size: 2.5rem;
+    color: #2E7D32;
+    margin-bottom: 2rem;
+}
+
+.sobre-text p {
+    font-size: 1.2rem;
     line-height: 1.8;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto;
+    color: #666;
+}
+
+.sobre-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 /* Pilares Section */
 .pilares-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%);
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
 }
 
 .pilares-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #2E7D32;
     margin-bottom: 4rem;
+    color: #2E7D32;
 }
 
 .pilares-grid {
@@ -201,17 +206,17 @@ body {
 
 .pilar-card {
     background: white;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border-top: 4px solid #4CAF50;
 }
 
 .pilar-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .pilar-icon {
@@ -223,7 +228,6 @@ body {
     font-size: 1.5rem;
     color: #2E7D32;
     margin-bottom: 1rem;
-    font-weight: 600;
 }
 
 .pilar-card p {
@@ -233,86 +237,46 @@ body {
 
 /* Benefícios Section */
 .beneficios-section {
-    padding: 5rem 0;
+    padding: 100px 0;
     background: white;
 }
 
 .beneficios-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #2E7D32;
     margin-bottom: 4rem;
+    color: #2E7D32;
 }
 
 .beneficios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .beneficio-card {
-    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
     color: white;
-    padding: 3rem 2rem;
+    padding: 2.5rem;
     border-radius: 20px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
     transition: all 0.3s ease;
-}
-
-.beneficio-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255,255,255,0.1);
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-}
-
-.beneficio-card:hover::before {
-    animation: shine 0.6s ease-out;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    box-shadow: 0 10px 30px rgba(46,125,50,0.3);
 }
 
 .beneficio-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 80px rgba(76, 175, 80, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(46,125,50,0.4);
 }
 
 .beneficio-icon {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .beneficio-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.beneficio-card p {
-    opacity: 0.95;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.percent {
-    display: inline-block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: rgba(255,255,255,0.2);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
 }
 
 /* Footer */
@@ -320,7 +284,7 @@ body {
     background: #2E7D32;
     color: white;
     text-align: center;
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .social-links {
@@ -328,15 +292,10 @@ body {
 }
 
 .social-links a {
-    font-size: 1.5rem;
-    margin: 0 1rem;
     color: white;
     text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: scale(1.2);
+    margin: 0 1rem;
+    font-weight: 500;
 }
 
 /* Responsive */
@@ -345,7 +304,7 @@ body {
         display: none;
     }
     
-    .hero h1 {
+    .hero-content h1 {
         font-size: 2.5rem;
     }
     
@@ -357,22 +316,18 @@ body {
         padding: 1.5rem 1rem;
     }
     
-    .stat .number {
-        font-size: 2rem;
+    .sobre-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .video-container iframe {
         height: 300px;
     }
-    
-    .pilares-grid,
-    .beneficios-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
+    .hero-content h1 {
         font-size: 2rem;
     }
     
