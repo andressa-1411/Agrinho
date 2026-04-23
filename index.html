@@ -5,218 +5,229 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
+        <div class="container">
+            <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>AgroSustentável</span>
+                    <i class="fas fa-seedling"></i>
+                    Agro Forte Sustentável
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#pilares">Pilares</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#video">Vídeo</a></li>
-                </ul>
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#pilares">Pilares</a>
+                    <a href="#beneficios">Benefícios</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+                <div class="header-contact">
+                    <a href="tel:+5541999999999" class="contact-btn"><i class="fas fa-phone"></i> (41) 9999-9999</a>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Agro Forte, Futuro Sustentável</h1>
-            <p class="hero-subtitle">Equilíbrio entre produção e meio ambiente</p>
-            <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-number">+85%</div>
-                    <div class="stat-label">Produtividade ILPF</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">+40%</div>
-                    <div class="stat-label">Sequestro de Carbono</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">+30%</div>
-                    <div class="stat-label">Rentabilidade</div>
-                </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Agro Forte, <span class="highlight">Futuro Sustentável</span></h1>
+                <p class="hero-subtitle">Produzindo mais, preservando melhor para as próximas gerações</p>
+                <a href="#video" class="cta-button">Assista ao Vídeo <i class="fas fa-play"></i></a>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1504279578155-77e3f18c16cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fazenda sustentável">
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Introdução -->
-        <section class="intro">
-            <div class="container">
-                <div class="intro-content">
-                    <h2>O Agro Forte e Sustentável</h2>
-                    <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF). Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
-                </div>
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nosso Compromisso com o Futuro</h2>
+                <p>Conheça as práticas que estão transformando o agro brasileiro</p>
             </div>
-        </section>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/jXYN97GMoGM?si=qovuO8rBnpVLT1HM" 
+                        title="Agro Forte Sustentável" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
 
-        <!-- Pilares -->
-        <section id="pilares" class="pilares">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-columns"></i> Pilares do Agro Sustentável</h2>
-                <div class="pilares-grid">
-                    <div class="pilar-card">
-                        <div class="pilar-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Tecnologia e Inovação</h3>
-                        <p>Uso de técnicas como controle biológico e agricultura de precisão para maior eficiência operacional.</p>
-                        <div class="instagram-tag">
-                            <i class="fab fa-instagram"></i> +4
-                        </div>
-                    </div>
-                    <div class="pilar-card">
-                        <div class="pilar-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3>Conservação de Recursos</h3>
-                        <p>Práticas de manejo que protegem solo, água e biodiversidade, evitando a necessidade de desmatamento.</p>
-                    </div>
-                    <div class="pilar-card">
-                        <div class="pilar-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3>ILPF</h3>
-                        <p>Integração Lavoura-Pecuária-Floresta: Sistema que combina produção agrícola, pecuária e florestal na mesma área, otimizando o uso da terra e sequestrando carbono.</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
-                        <span class="progress-text">75% das áreas recuperadas</span>
-                    </div>
-                    <div class="pilar-card">
-                        <div class="pilar-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Valorização e ESG</h3>
-                        <p>Adoção de práticas ESG (Ambiental, Social e Governança) para aumentar o valor da produção e facilitar o acesso a crédito rural.</p>
-                    </div>
-                    <div class="pilar-card special">
-                        <div class="pilar-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Programa Agrinho 2026</h3>
-                        <p>Iniciativa focada no Paraná que dissemina a cultura do equilíbrio entre produção agropecuária e preservação ambiental.</p>
-                        <div class="instagram-tag">
-                            <i class="fab fa-instagram"></i> +6
-                        </div>
-                    </div>
+    <!-- Agro Sustentável Section -->
+    <section class="agro-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="text-content">
+                    <h2 class="section-title">O Agro Forte e Sustentável</h2>
+                    <p class="agro-description">
+                        O agro forte e sustentável baseia-se no equilíbrio entre <strong>alta produtividade</strong> e <strong>conservação ambiental</strong>, utilizando tecnologias como 
+                        <strong>plantio direto</strong>, <strong>bioinsumos</strong> e <strong>Integração Lavoura-Pecuária-Floresta (ILPF)</strong>. 
+                        Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.
+                    </p>
+                </div>
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1611100481087-2eb83c6dd97c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ILPF">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Benefícios -->
-        <section id="beneficios" class="beneficios">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-chart-line"></i> Benefícios da Produção Sustentável</h2>
-                <div class="beneficios-grid">
-                    <div class="beneficio-card">
-                        <div class="beneficio-number">01</div>
-                        <h3>Acesso a Mercados</h3>
-                        <p>Certificações ambientais abrem portas para mercados internacionais exigentes.</p>
-                        <div class="benefit-stat">
-                            <span class="stat-big">+60%</span>
-                            <span>Exportações certificadas</span>
-                        </div>
-                    </div>
-                    <div class="beneficio-card">
-                        <div class="beneficio-number">02</div>
-                        <h3>Eficiência e Rentabilidade</h3>
-                        <p>Adoção de práticas sustentáveis aumenta a produtividade e reduz o uso de agrotóxicos.</p>
-                        <div class="benefit-stat">
-                            <span class="stat-big">-35%</span>
-                            <span>Uso de agrotóxicos</span>
-                        </div>
-                    </div>
-                    <div class="beneficio-card">
-                        <div class="beneficio-number">03</div>
-                        <h3>Futuro das Gerações</h3>
-                        <p>Garantia de recursos naturais para a continuidade da atividade agrícola.</p>
-                        <div class="benefit-stat">
-                            <span class="stat-big">∞</span>
-                            <span>Legado sustentável</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Pilares Section -->
+    <section id="pilares" class="pilares-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pilares do Agro Sustentável</h2>
+                <p>Os quatro pilares que sustentam nosso futuro</p>
             </div>
-        </section>
+            <div class="pilares-grid">
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Tecnologia e Inovação</h3>
+                    <div class="stat-badge">+4</div>
+                    <p>Uso de técnicas como controle biológico e agricultura de precisão para maior eficiência operacional.</p>
+                </div>
 
-        <!-- Vídeo -->
-        <section id="video" class="video-section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-video"></i> Conheça o Agro Sustentável em Ação</h2>
-                <div class="video-container">
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/jXYN97GMoGM?si=iQBYczDSQRgFvDbz" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Conservação de Recursos</h3>
+                    <p>Práticas de manejo que protegem solo, água e biodiversidade, evitando a necessidade de desmatamento.</p>
+                </div>
+
+                <div class="pilar-card featured">
+                    <div class="pilar-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>ILPF</h3>
+                    <div class="stat-badge large">75% das áreas recuperadas</div>
+                    <p>Integração Lavoura-Pecuária-Floresta: Sistema que combina produção agrícola, pecuária e florestal na mesma área, otimizando o uso da terra e sequestrando carbono.</p>
+                </div>
+
+                <div class="pilar-card">
+                    <div class="pilar-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Valorização e ESG</h3>
+                    <p>Adoção de práticas ESG (Ambiental, Social e Governança) para aumentar o valor da produção e facilitar o acesso a crédito rural.</p>
+                    <div class="programa">
+                        <strong>Programa Agrinho 2026</strong><br>
+                        Iniciativa focada no Paraná que dissemina a cultura do equilíbrio entre produção agropecuária e preservação ambiental.
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Benefícios Section -->
+    <section id="beneficios" class="beneficios-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Benefícios da Produção Sustentável</h2>
+            </div>
+            <div class="beneficios-grid">
+                <div class="beneficio-card">
+                    <div class="beneficio-number">01</div>
+                    <h3>Acesso a Mercados</h3>
+                    <div class="stat-badge success">+60% Exportações certificadas</div>
+                    <p>Certificações ambientais abrem portas para mercados internacionais exigentes.</p>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-number">02</div>
+                    <h3>Eficiência e Rentabilidade</h3>
+                    <div class="stat-badge danger">-35% Uso de agrotóxicos</div>
+                    <p>Adoção de práticas sustentáveis aumenta a produtividade e reduz o uso de agrotóxicos.</p>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-number">03</div>
+                    <h3>Futuro das Gerações</h3>
+                    <div class="stat-badge warning">∞ Legado sustentável</div>
+                    <p>Garantia de recursos naturais para a continuidade da atividade agrícola.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">+60%</div>
+                    <div class="stat-label">Exportações Certificadas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">Áreas Recuperadas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">-35%</div>
+                    <div class="stat-label">Redução Agrotóxicos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+4</div>
+                    <div class="stat-label">Tecnologias</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p>Estamos prontos para levar sustentabilidade ao seu agro</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefone</h3>
+                    <p><a href="tel:+5541999999999">(41) 9999-9999</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:contato@agroforte.com">contato@agroforte.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/5541999999999">(41) 9999-9999</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Localização</h3>
+                    <p>Curitiba - Paraná</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>AgroSustentável 2024</span>
-                </div>
-                <p>Equilíbrio entre produção e meio ambiente para um futuro próspero.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+            <p>&copy; 2024 Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
+            <p>🌱 Produzindo mais, preservando melhor</p>
         </div>
     </footer>
-
-    <script>
-        // Smooth scroll para links de navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animação dos números de estatística
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = stat.textContent;
-                stat.style.animation = 'countUp 2s ease-out';
-            });
-        }
-
-        // Trigger animação quando entrar na seção hero
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                }
-            });
-        });
-
-        observer.observe(document.querySelector('.hero'));
-    </script>
 </body>
 </html>
