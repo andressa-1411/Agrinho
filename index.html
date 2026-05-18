@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,20 @@
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌱 AgroSustentável</div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#midia-videos">Vídeos</a></li>
+                <li><a href="#midia-imagens">Imagens</a></li>
+                <li><a href="#game">Mini-Game</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-btn">🌓 Tema Escuro</button>
+        </div>
+    </nav>
+
     <header class="hero">
         <div class="container">
             <h1>Agro Forte, Futuro Sustentável</h1>
@@ -15,8 +29,9 @@
         </div>
     </header>
 
-    <section class="manifesto container">
+    <section id="sobre" class="manifesto container">
         <div class="card manifesto-card">
+            <h2>Sobre o projeto</h2>
             <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF). Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
         </div>
     </section>
@@ -53,9 +68,8 @@
         </div>
     </section>
 
-    <section class="midia container">
-        <h2>Conteúdo Visual</h2>
-        
+    <section id="midia-videos" class="midia container">
+        <h2>Vídeos Informativos</h2>
         <div class="video-grid">
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/jXYN97GMoGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -64,20 +78,23 @@
                 <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
+    </section>
 
+    <section id="midia-imagens" class="midia container">
+        <h2>Galeria do Agro Sustentável</h2>
         <div class="image-grid">
             <div class="img-card">
-                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=600&q=80" alt="Tecnologia no Campo">
-                <p>Agricultura de Precisão</p>
+                <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=800&q=80" alt="Plantação jovem brotando de forma sustentável">
+                <p>Tecnologia e Monitoramento de Safra</p>
             </div>
             <div class="img-card">
-                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" alt="Sustentabilidade">
-                <p>Manejo Sustentável do Solo</p>
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=800&q=80" alt="Trator moderno trabalhando com agricultura de precisão">
+                <p>Maquinário de Precisão com Baixo Impacto</p>
             </div>
         </div>
     </section>
 
-    <section class="game-section container">
+    <section id="game" class="game-section container">
         <h2>Mini-Game: O Fazendeiro Sustentável</h2>
         <p>Tome as decisões corretas para tornar sua fazenda produtiva e ecológica!</p>
         
@@ -90,6 +107,19 @@
             <div id="score-container">
                 Pontuação: <span id="score-val">0</span> xp
             </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato-section container">
+        <div class="card contato-card">
+            <h2>Contato & Suporte</h2>
+            <p>Tem dúvidas sobre as práticas do Programa Agrinho 2026 ou quer saber mais sobre tecnologias sustentáveis? Deixe sua mensagem!</p>
+            <form class="contato-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua Mensagem ou Dúvida" rows="4" required></textarea>
+                <button type="submit" class="game-btn">Enviar Mensagem</button>
+            </form>
         </div>
     </section>
 
