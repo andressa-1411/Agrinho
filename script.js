@@ -1,20 +1,31 @@
-// --- FUNÇÃO PARA ANIMAR AS PORCENTAGENS/NÚMEROS ---
+// --- CONTROLE DE TEMA CLARO / ESCURO ---
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    if (currentTheme === 'light') {
+        htmlElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerText = "☀️ Tema Claro";
+    } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        themeToggle.innerText = "🌓 Tema Escuro";
+    }
+});
+
+// --- FUNÇÃO DE ANIMAÇÃO DAS PORCENTAGENS ---
 function animateCounters() {
     const counters = document.querySelectorAll('.counter');
-    const speed = 60; // Quanto menor o número, mais rápida é a animação
+    const speed = 60; 
 
     counters.forEach(counter => {
         const updateCount = () => {
             const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-
-            // Calcula o incremento dinâmico
             const increment = Math.ceil(target / speed);
 
-            // Se o valor atual ainda for menor que o objetivo
             if (count < target) {
                 counter.innerText = count + increment;
-                // Garante que não vai passar do valor exato no último passo
                 if (+(counter.innerText) > target) {
                     counter.innerText = target;
                 }
@@ -27,7 +38,7 @@ function animateCounters() {
     });
 }
 
-// --- DADOS DO MINI-GAME ---
+// --- DESAFIOS DO MINI-GAME ---
 const gameData = [
     {
         question: "Sua fazenda está enfrentando uma praga de insetos. Qual tecnologia sustentável você utiliza?",
@@ -62,7 +73,6 @@ const gameData = [
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Seletores do DOM para o game
 const gameText = document.getElementById("game-text");
 const optionsContainer = document.getElementById("options-container");
 const scoreVal = document.getElementById("score-val");
@@ -125,8 +135,8 @@ function restartGame() {
     loadQuestion();
 }
 
-// --- DISPARO DOS EVENTOS AO CARREGAR A PÁGINA ---
+// Inicializações ao carregar o site
 window.onload = () => {
-    animateCounters(); // Inicia a animação das porcentagens
-    loadQuestion();    // Inicia o mini-game
+    animateCounters();
+    loadQuestion();
 };
