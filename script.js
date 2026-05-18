@@ -1,4 +1,33 @@
-// Dados das perguntas do Mini-game
+// --- FUNÇÃO PARA ANIMAR AS PORCENTAGENS/NÚMEROS ---
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 60; // Quanto menor o número, mais rápida é a animação
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+
+            // Calcula o incremento dinâmico
+            const increment = Math.ceil(target / speed);
+
+            // Se o valor atual ainda for menor que o objetivo
+            if (count < target) {
+                counter.innerText = count + increment;
+                // Garante que não vai passar do valor exato no último passo
+                if (+(counter.innerText) > target) {
+                    counter.innerText = target;
+                }
+                setTimeout(updateCount, 25);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+}
+
+// --- DADOS DO MINI-GAME ---
 const gameData = [
     {
         question: "Sua fazenda está enfrentando uma praga de insetos. Qual tecnologia sustentável você utiliza?",
@@ -33,26 +62,21 @@ const gameData = [
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Seletores do DOM
+// Seletores do DOM para o game
 const gameText = document.getElementById("game-text");
 const optionsContainer = document.getElementById("options-container");
 const scoreVal = document.getElementById("score-val");
 
 function loadQuestion() {
-    // Verifica se o jogo acabou
     if (currentQuestionIndex >= gameData.length) {
         showFinalResult();
         return;
     }
 
-    // Limpa opções anteriores
     optionsContainer.innerHTML = "";
-    
-    // Pega pergunta atual
     const currentQuestion = gameData[currentQuestionIndex];
     gameText.innerText = currentQuestion.question;
 
-    // Gera botões de resposta
     currentQuestion.options.forEach(option => {
         const button = document.createElement("button");
         button.innerText = option.text;
@@ -64,7 +88,7 @@ function loadQuestion() {
 
 function handleAnswer(isCorrect) {
     if (isCorrect) {
-        score += 25; // Cada resposta correta adiciona 25 XP (Total 100 XP)
+        score += 25;
         alert("Excelente escolha! Isso fortalece o futuro sustentável do Agro. (+25 XP)");
     } else {
         alert("Essa escolha pode prejudicar o meio ambiente ou a produtividade a longo prazo. Tente o manejo correto na próxima!");
@@ -86,7 +110,6 @@ function showFinalResult() {
         gameText.innerText = `Você fez ${score} XP. Que tal revisar os conceitos de ILPF e controle biológico e tentar novamente? 🌍`;
     }
 
-    // Botão de reiniciar
     const restartBtn = document.createElement("button");
     restartBtn.innerText = "Jogar Novamente";
     restartBtn.classList.add("game-btn");
@@ -102,7 +125,8 @@ function restartGame() {
     loadQuestion();
 }
 
-// Inicializa o jogo ao carregar a página
+// --- DISPARO DOS EVENTOS AO CARREGAR A PÁGINA ---
 window.onload = () => {
-    loadQuestion();
+    animateCounters(); // Inicia a animação das porcentagens
+    loadQuestion();    // Inicia o mini-game
 };
