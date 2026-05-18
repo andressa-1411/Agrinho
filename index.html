@@ -8,87 +8,93 @@
 </head>
 <body>
 
-    <header>
+    <header class="hero">
         <div class="container">
-            <h1>Agro Forte, <span>Futuro Sustentável</span></h1>
+            <h1>Agro Forte, Futuro Sustentável</h1>
             <p>O equilíbrio entre alta produtividade e conservação ambiental.</p>
         </div>
     </header>
 
-    <main class="container">
-        <section class="intro-section">
-            <div class="intro-text">
-                <h2>O Futuro da Agricultura</h2>
-                <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF). Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
-            </div>
-            <div class="intro-image">
-                <div class="agro-logo-art">
-                    <div class="leaf leaf-1"></div>
-                    <div class="leaf leaf-2"></div>
-                </div>
-            </div>
-        </section>
+    <section class="manifesto container">
+        <div class="card manifesto-card">
+            <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF). Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
+        </div>
+    </section>
 
-        <section class="grid-cards">
-            <div class="card">
-                <div class="card-icon">🚀</div>
+    <section class="pilares container">
+        <div class="grid-pilares">
+            
+            <div class="card pilar">
+                <div class="icon-placeholder">🚜</div>
                 <h3>Tecnologia e Inovação</h3>
                 <p>Controle biológico e agricultura de precisão.</p>
-                <div class="stat">+4 <span>Novas Techs/Ano</span></div>
+                <div class="stat">+4 <span class="stat-label">Novas Techs/Ano</span></div>
             </div>
 
-            <div class="card">
-                <div class="card-icon">🌳</div>
+            <div class="card pilar">
+                <div class="icon-placeholder">🌱</div>
                 <h3>Conservação</h3>
                 <p>Manejo que protege o solo e evita o desmatamento.</p>
-                <div class="stat">75% <span>Áreas Recuperadas</span></div>
+                <div class="stat">75% <span class="stat-label">Áreas Recuperadas</span></div>
             </div>
 
-            <div class="card">
-                <div class="card-icon">🔄</div>
+            <div class="card pilar">
+                <div class="icon-placeholder">🌳</div>
                 <h3>ILPF</h3>
                 <p>Integração que sequestra carbono e otimiza a terra.</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
             </div>
 
-            <div class="card">
-                <div class="card-icon">🤝</div>
+            <div class="card pilar">
+                <div class="icon-placeholder">🤝</div>
                 <h3>ESG & Agrinho</h3>
                 <p>Práticas sociais e governança (Programa Agrinho 2026).</p>
-                <span class="badge">Selo 2026</span>
             </div>
-        </section>
 
-        <section class="video-section">
-            <h2>Conhecimento em Vídeo</h2>
-            <div class="video-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/jXYN97GMoGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="game-section">
-            <h2>Mini Game: Quiz do Agro Sustentável</h2>
-            <p>Combine produtividade com preservação! Responda se a afirmação é Verdadeira ou Falsa.</p>
-            
-            <div id="game-box">
-                <div id="question-text">Carregando pergunta...</div>
-                <div class="game-buttons">
-                    <button onclick="checkAnswer(true)" class="btn-true">Verdadeiro 👍</button>
-                    <button onclick="checkAnswer(false)" class="btn-false">Falso 👎</button>
-                </div>
-                <div id="game-feedback"></div>
-                <div id="score-board">Pontuação: <span id="score">0</span></div>
+    <section class="midia container">
+        <h2>Conteúdo Visual</h2>
+        
+        <div class="video-grid">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jXYN97GMoGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-        </section>
-    </main>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="image-grid">
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=600&q=80" alt="Tecnologia no Campo">
+                <p>Agricultura de Precisão</p>
+            </div>
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" alt="Sustentabilidade">
+                <p>Manejo Sustentável do Solo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-section container">
+        <h2>Mini-Game: O Fazendeiro Sustentável</h2>
+        <p>Tome as decisões corretas para tornar sua fazenda produtiva e ecológica!</p>
+        
+        <div class="card game-container" id="game-box">
+            <div id="question-container">
+                <p id="game-text">Carregando o desafio...</p>
+                <div class="game-options" id="options-container">
+                    </div>
+            </div>
+            <div id="score-container">
+                Pontuação: <span id="score-val">0</span> xp
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Agro Forte, Futuro Sustentável | Programa Agrinho</p>
+        <p>© 2026 Agro Forte, Futuro Sustentável | Programa Agrinho</p>
     </footer>
 
     <script src="script.js"></script>
