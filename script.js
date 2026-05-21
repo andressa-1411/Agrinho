@@ -1,160 +1,153 @@
-/* ======================================
-   ACCORDION
-====================================== */
+// =========================
+// ACCORDION
+// =========================
 
-const accordionHeaders = document.querySelectorAll(".accordion-header");
+const accordionButtons =
+document.querySelectorAll(".accordion-btn");
 
-accordionHeaders.forEach(header => {
+accordionButtons.forEach((button) => {
 
-  header.addEventListener("click", () => {
+  button.addEventListener("click", () => {
 
-    const content = header.nextElementSibling;
+    const content =
+    button.nextElementSibling;
 
-    content.style.maxHeight
-      ? content.style.maxHeight = null
-      : content.style.maxHeight = content.scrollHeight + "px";
+    if(content.style.maxHeight){
+
+      content.style.maxHeight = null;
+
+    }else{
+
+      content.style.maxHeight =
+      content.scrollHeight + "px";
+
+    }
 
   });
 
 });
 
-/* ======================================
-   COMENTÁRIOS
-====================================== */
+// =========================
+// TEMA ESCURO / CLARO
+// =========================
 
-const commentBtn = document.getElementById("comment-btn");
-const commentInput = document.getElementById("comment-input");
-const commentsList = document.getElementById("comments-list");
+const toggleTema =
+document.getElementById("toggleTema");
 
-commentBtn.addEventListener("click", () => {
+toggleTema.addEventListener("click", () => {
 
-  const text = commentInput.value.trim();
+  document.body.classList.toggle("light");
 
-  if(text === "") return;
+  if(document.body.classList.contains("light")){
 
-  const comment = document.createElement("div");
+    toggleTema.textContent = "☀️";
 
-  comment.classList.add("comment");
+  }else{
 
-  comment.innerHTML = `
-    <p>${text}</p>
-  `;
-
-  commentsList.prepend(comment);
-
-  commentInput.value = "";
-
-});
-
-/* ======================================
-   DARK / LIGHT MODE
-====================================== */
-
-const toggleThemeBtn = document.getElementById("toggle-theme");
-const gameToggleBtn = document.getElementById("game-toggle-btn");
-const themeStatus = document.getElementById("theme-status");
-
-function toggleTheme() {
-
-  document.body.classList.toggle("light-mode");
-
-  const isLight =
-    document.body.classList.contains("light-mode");
-
-  themeStatus.textContent =
-    isLight
-      ? "Tema Atual: Claro"
-      : "Tema Atual: Escuro";
-
-  toggleThemeBtn.textContent =
-    isLight ? "☀" : "🌙";
-
-}
-
-toggleThemeBtn.addEventListener("click", toggleTheme);
-gameToggleBtn.addEventListener("click", toggleTheme);
-
-/* ======================================
-   AUMENTAR / DIMINUIR FONTE
-====================================== */
-
-let currentFontSize = 16;
-
-const increaseFontBtn =
-  document.getElementById("increase-font");
-
-const decreaseFontBtn =
-  document.getElementById("decrease-font");
-
-increaseFontBtn.addEventListener("click", () => {
-
-  currentFontSize += 1;
-
-  document.documentElement.style.setProperty(
-    "--font-size-base",
-    `${currentFontSize}px`
-  );
-
-});
-
-decreaseFontBtn.addEventListener("click", () => {
-
-  if(currentFontSize > 12) {
-
-    currentFontSize -= 1;
-
-    document.documentElement.style.setProperty(
-      "--font-size-base",
-      `${currentFontSize}px`
-    );
+    toggleTema.textContent = "🌙";
 
   }
 
 });
 
-/* ======================================
-   LEITURA POR VOZ
-====================================== */
+// =========================
+// AUMENTAR / DIMINUIR FONTE
+// =========================
 
-const readBtn = document.getElementById("read-page");
-const stopBtn = document.getElementById("stop-reading");
+let tamanhoFonte = 16;
 
-let speech;
+const aumentarFonte =
+document.getElementById("aumentarFonte");
 
-readBtn.addEventListener("click", () => {
+const diminuirFonte =
+document.getElementById("diminuirFonte");
 
-  const mainContent =
-    document.getElementById("main-content").innerText;
+aumentarFonte.addEventListener("click", () => {
 
-  speech = new SpeechSynthesisUtterance(mainContent);
+  tamanhoFonte += 1;
 
-  speech.lang = "pt-BR";
-
-  speech.rate = 1;
-
-  window.speechSynthesis.speak(speech);
+  document.documentElement.style.fontSize =
+  tamanhoFonte + "px";
 
 });
 
-stopBtn.addEventListener("click", () => {
+diminuirFonte.addEventListener("click", () => {
 
-  window.speechSynthesis.cancel();
+  tamanhoFonte -= 1;
+
+  if(tamanhoFonte < 12){
+    tamanhoFonte = 12;
+  }
+
+  document.documentElement.style.fontSize =
+  tamanhoFonte + "px";
 
 });
 
-/* ======================================
-   FORMULÁRIO
-====================================== */
+// =========================
+// LEITURA POR VOZ
+// =========================
 
-const seminarForm =
-  document.querySelector(".seminar-form");
+const lerConteudo =
+document.getElementById("lerConteudo");
 
-seminarForm.addEventListener("submit", (event) => {
+const pararLeitura =
+document.getElementById("pararLeitura");
 
-  event.preventDefault();
+let fala;
 
-  alert("Inscrição realizada com sucesso!");
+lerConteudo.addEventListener("click", () => {
 
-  seminarForm.reset();
+  const principal =
+  document.querySelector(".conteudo-principal");
+
+  const texto =
+  principal.innerText;
+
+  fala =
+  new SpeechSynthesisUtterance(texto);
+
+  fala.lang = "pt-BR";
+
+  speechSynthesis.speak(fala);
+
+});
+
+pararLeitura.addEventListener("click", () => {
+
+  speechSynthesis.cancel();
+
+});
+
+// =========================
+// MINI GAME
+// =========================
+
+let score = 0;
+
+const scoreElement =
+document.getElementById("score");
+
+const gameBtn =
+document.getElementById("gameBtn");
+
+gameBtn.addEventListener("click", () => {
+
+  const ganho =
+  Math.floor(Math.random() * 15) + 1;
+
+  score += ganho;
+
+  scoreElement.textContent = score;
+
+  gameBtn.textContent =
+  "Produção +" + ganho + " 🌾";
+
+  setTimeout(() => {
+
+    gameBtn.textContent =
+    "Cultivar 🌱";
+
+  }, 800);
 
 });
