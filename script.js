@@ -1,142 +1,160 @@
-// --- CONTROLE DE TEMA CLARO / ESCURO ---
-const themeToggle = document.getElementById('theme-toggle');
-const htmlElement = document.documentElement;
+/* ======================================
+   ACCORDION
+====================================== */
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    if (currentTheme === 'light') {
-        htmlElement.setAttribute('data-theme', 'dark');
-        themeToggle.innerText = "☀️ Tema Claro";
-    } else {
-        htmlElement.setAttribute('data-theme', 'light');
-        themeToggle.innerText = "🌓 Tema Escuro";
-    }
+const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+accordionHeaders.forEach(header => {
+
+  header.addEventListener("click", () => {
+
+    const content = header.nextElementSibling;
+
+    content.style.maxHeight
+      ? content.style.maxHeight = null
+      : content.style.maxHeight = content.scrollHeight + "px";
+
+  });
+
 });
 
-// --- FUNÇÃO DE ANIMAÇÃO DAS PORCENTAGENS ---
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const speed = 60; 
+/* ======================================
+   COMENTÁRIOS
+====================================== */
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = Math.ceil(target / speed);
+const commentBtn = document.getElementById("comment-btn");
+const commentInput = document.getElementById("comment-input");
+const commentsList = document.getElementById("comments-list");
 
-            if (count < target) {
-                counter.innerText = count + increment;
-                if (+(counter.innerText) > target) {
-                    counter.innerText = target;
-                }
-                setTimeout(updateCount, 25);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    });
+commentBtn.addEventListener("click", () => {
+
+  const text = commentInput.value.trim();
+
+  if(text === "") return;
+
+  const comment = document.createElement("div");
+
+  comment.classList.add("comment");
+
+  comment.innerHTML = `
+    <p>${text}</p>
+  `;
+
+  commentsList.prepend(comment);
+
+  commentInput.value = "";
+
+});
+
+/* ======================================
+   DARK / LIGHT MODE
+====================================== */
+
+const toggleThemeBtn = document.getElementById("toggle-theme");
+const gameToggleBtn = document.getElementById("game-toggle-btn");
+const themeStatus = document.getElementById("theme-status");
+
+function toggleTheme() {
+
+  document.body.classList.toggle("light-mode");
+
+  const isLight =
+    document.body.classList.contains("light-mode");
+
+  themeStatus.textContent =
+    isLight
+      ? "Tema Atual: Claro"
+      : "Tema Atual: Escuro";
+
+  toggleThemeBtn.textContent =
+    isLight ? "☀" : "🌙";
+
 }
 
-// --- DESAFIOS DO MINI-GAME ---
-const gameData = [
-    {
-        question: "Sua fazenda está enfrentando uma praga de insetos. Qual tecnologia sustentável você utiliza?",
-        options: [
-            { text: "Aplicar defensivos químicos pesados em toda a área.", input: false },
-            { text: "Implementar o Controle Biológico usando inimigos naturais da praga.", input: true }
-        ]
-    },
-    {
-        question: "Você quer expandir a produção sem desmatar nenhuma nova área de floresta. Qual a melhor estratégia?",
-        options: [
-            { text: "Adotar o sistema ILPF (Integração Lavoura-Pecuária-Floresta) para otimizar o solo.", input: true },
-            { text: "Deixar o solo descansar por anos sem produzir nada.", input: false }
-        ]
-    },
-    {
-        question: "Para proteger o solo contra erosão e manter a umidade da terra, qual manejo você escolhe?",
-        options: [
-            { text: "Arar a terra profundamente antes de cada plantio.", input: false },
-            { text: "Utilizar a técnica de Plantio Direto sobre a palhada anterior.", input: true }
-        ]
-    },
-    {
-        question: "Alinhado às metas ESG e ao Programa Agrinho 2026, qual ação social traz mais valor à sua comunidade?",
-        options: [
-            { text: "Oferecer treinamentos de segurança e práticas agrícolas sustentáveis para os colaboradores.", input: true },
-            { text: "Focar apenas no lucro da safra atual e ignorar o entorno.", input: false }
-        ]
-    }
-];
+toggleThemeBtn.addEventListener("click", toggleTheme);
+gameToggleBtn.addEventListener("click", toggleTheme);
 
-let currentQuestionIndex = 0;
-let score = 0;
+/* ======================================
+   AUMENTAR / DIMINUIR FONTE
+====================================== */
 
-const gameText = document.getElementById("game-text");
-const optionsContainer = document.getElementById("options-container");
-const scoreVal = document.getElementById("score-val");
+let currentFontSize = 16;
 
-function loadQuestion() {
-    if (currentQuestionIndex >= gameData.length) {
-        showFinalResult();
-        return;
-    }
+const increaseFontBtn =
+  document.getElementById("increase-font");
 
-    optionsContainer.innerHTML = "";
-    const currentQuestion = gameData[currentQuestionIndex];
-    gameText.innerText = currentQuestion.question;
+const decreaseFontBtn =
+  document.getElementById("decrease-font");
 
-    currentQuestion.options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option.text;
-        button.classList.add("game-btn");
-        button.addEventListener("click", () => handleAnswer(option.input));
-        optionsContainer.appendChild(button);
-    });
-}
+increaseFontBtn.addEventListener("click", () => {
 
-function handleAnswer(isCorrect) {
-    if (isCorrect) {
-        score += 25;
-        alert("Excelente escolha! Isso fortalece o futuro sustentável do Agro. (+25 XP)");
-    } else {
-        alert("Essa escolha pode prejudicar o meio ambiente ou a produtividade a longo prazo. Tente o manejo correto na próxima!");
-    }
-    
-    scoreVal.innerText = score;
-    currentQuestionIndex++;
-    loadQuestion();
-}
+  currentFontSize += 1;
 
-function showFinalResult() {
-    optionsContainer.innerHTML = "";
-    
-    if (score === 100) {
-        gameText.innerText = `Parabéns! Você alcançou 100 XP. Sua fazenda é um modelo perfeito de Agro Forte e Sustentável alinhado ao Agrinho 2026! 🏆🌱`;
-    } else if (score >= 50) {
-        gameText.innerText = `Bom trabalho! Você fez ${score} XP. Sua fazenda está no caminho certo, mas ainda pode aplicar mais tecnologias de conservação! 🚜`;
-    } else {
-        gameText.innerText = `Você fez ${score} XP. Que tal revisar os conceitos de ILPF e controle biológico e tentar novamente? 🌍`;
-    }
+  document.documentElement.style.setProperty(
+    "--font-size-base",
+    `${currentFontSize}px`
+  );
 
-    const restartBtn = document.createElement("button");
-    restartBtn.innerText = "Jogar Novamente";
-    restartBtn.classList.add("game-btn");
-    restartBtn.style.marginTop = "20px";
-    restartBtn.addEventListener("click", restartGame);
-    optionsContainer.appendChild(restartBtn);
-}
+});
 
-function restartGame() {
-    currentQuestionIndex = 0;
-    score = 0;
-    scoreVal.innerText = score;
-    loadQuestion();
-}
+decreaseFontBtn.addEventListener("click", () => {
 
-// Inicializações ao carregar o site
-window.onload = () => {
-    animateCounters();
-    loadQuestion();
-};
+  if(currentFontSize > 12) {
+
+    currentFontSize -= 1;
+
+    document.documentElement.style.setProperty(
+      "--font-size-base",
+      `${currentFontSize}px`
+    );
+
+  }
+
+});
+
+/* ======================================
+   LEITURA POR VOZ
+====================================== */
+
+const readBtn = document.getElementById("read-page");
+const stopBtn = document.getElementById("stop-reading");
+
+let speech;
+
+readBtn.addEventListener("click", () => {
+
+  const mainContent =
+    document.getElementById("main-content").innerText;
+
+  speech = new SpeechSynthesisUtterance(mainContent);
+
+  speech.lang = "pt-BR";
+
+  speech.rate = 1;
+
+  window.speechSynthesis.speak(speech);
+
+});
+
+stopBtn.addEventListener("click", () => {
+
+  window.speechSynthesis.cancel();
+
+});
+
+/* ======================================
+   FORMULÁRIO
+====================================== */
+
+const seminarForm =
+  document.querySelector(".seminar-form");
+
+seminarForm.addEventListener("submit", (event) => {
+
+  event.preventDefault();
+
+  alert("Inscrição realizada com sucesso!");
+
+  seminarForm.reset();
+
+});
