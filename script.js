@@ -1,6 +1,6 @@
-// =========================
+// =====================================
 // ACCORDION
-// =========================
+// =====================================
 
 const accordionButtons =
 document.querySelectorAll(".accordion-btn");
@@ -12,11 +12,11 @@ accordionButtons.forEach((button) => {
     const content =
     button.nextElementSibling;
 
-    if(content.style.maxHeight){
+    if (content.style.maxHeight) {
 
       content.style.maxHeight = null;
 
-    }else{
+    } else {
 
       content.style.maxHeight =
       content.scrollHeight + "px";
@@ -27,9 +27,9 @@ accordionButtons.forEach((button) => {
 
 });
 
-// =========================
+// =====================================
 // TEMA ESCURO / CLARO
-// =========================
+// =====================================
 
 const toggleTema =
 document.getElementById("toggleTema");
@@ -38,11 +38,11 @@ toggleTema.addEventListener("click", () => {
 
   document.body.classList.toggle("light");
 
-  if(document.body.classList.contains("light")){
+  if (document.body.classList.contains("light")) {
 
     toggleTema.textContent = "☀️";
 
-  }else{
+  } else {
 
     toggleTema.textContent = "🌙";
 
@@ -50,9 +50,9 @@ toggleTema.addEventListener("click", () => {
 
 });
 
-// =========================
+// =====================================
 // AUMENTAR / DIMINUIR FONTE
-// =========================
+// =====================================
 
 let tamanhoFonte = 16;
 
@@ -75,7 +75,7 @@ diminuirFonte.addEventListener("click", () => {
 
   tamanhoFonte -= 1;
 
-  if(tamanhoFonte < 12){
+  if (tamanhoFonte < 12) {
     tamanhoFonte = 12;
   }
 
@@ -84,9 +84,9 @@ diminuirFonte.addEventListener("click", () => {
 
 });
 
-// =========================
+// =====================================
 // LEITURA POR VOZ
-// =========================
+// =====================================
 
 const lerConteudo =
 document.getElementById("lerConteudo");
@@ -98,6 +98,8 @@ let fala;
 
 lerConteudo.addEventListener("click", () => {
 
+  speechSynthesis.cancel();
+
   const principal =
   document.querySelector(".conteudo-principal");
 
@@ -108,6 +110,8 @@ lerConteudo.addEventListener("click", () => {
   new SpeechSynthesisUtterance(texto);
 
   fala.lang = "pt-BR";
+  fala.rate = 1;
+  fala.pitch = 1;
 
   speechSynthesis.speak(fala);
 
@@ -119,11 +123,9 @@ pararLeitura.addEventListener("click", () => {
 
 });
 
-// =========================
-// MINI GAME
-// =========================
-
-let score = 0;
+// =====================================
+// MINI GAME - AGROFORTE
+// =====================================
 
 const scoreElement =
 document.getElementById("score");
@@ -131,23 +133,67 @@ document.getElementById("score");
 const gameBtn =
 document.getElementById("gameBtn");
 
-gameBtn.addEventListener("click", () => {
+let score = 0;
 
-  const ganho =
-  Math.floor(Math.random() * 15) + 1;
+if (gameBtn && scoreElement) {
 
-  score += ganho;
+  gameBtn.addEventListener("click", () => {
 
-  scoreElement.textContent = score;
+    // Valor aleatório de produção
+    const ganho =
+    Math.floor(Math.random() * 15) + 1;
 
-  gameBtn.textContent =
-  "Produção +" + ganho + " 🌾";
+    score += ganho;
 
-  setTimeout(() => {
+    // Atualiza pontuação
+    scoreElement.textContent = score;
 
-    gameBtn.textContent =
-    "Cultivar 🌱";
+    // Animação do botão
+    gameBtn.classList.add("ativo");
 
-  }, 800);
+    // Mensagem dinâmica
+    if (ganho >= 10) {
 
-});
+      gameBtn.textContent =
+      `Excelente colheita +${ganho} 🌾`;
+
+    } else {
+
+      gameBtn.textContent =
+      `Produção +${ganho} 🚜`;
+
+    }
+
+    // Vitória sustentável
+    if (score >= 100) {
+
+      gameBtn.textContent =
+      "Meta sustentável alcançada 🌱";
+
+      gameBtn.disabled = true;
+
+      setTimeout(() => {
+
+        alert(
+          "Parabéns! Sua produção sustentável atingiu o máximo de eficiência."
+        );
+
+      }, 300);
+
+    }
+
+    // Retorno visual
+    setTimeout(() => {
+
+      if (score < 100) {
+
+        gameBtn.textContent =
+        "Cultivar 🌱";
+
+      }
+
+      gameBtn.classList.remove("ativo");
+
+    }, 1200);
+
+  });
