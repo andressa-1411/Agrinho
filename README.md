@@ -1,22 +1,13 @@
-# Projeto: Agroforte, Futuro Sustentável
+# Agroforte, Futuro Sustentável
 
 ## 📡 Tema da Página
-A página aborda a **Inovação Agrícola Brasileira**, destacando como o Brasil lidera a tecnologia sustentável através do uso de microrganismos (bioinsumos) e Inteligência Artificial para aumentar a produtividade e proteger o meio ambiente.
+A plataforma aborda a liderança tecnológica e sustentável da agricultura brasileira. O foco central está no uso de Inteligência Artificial e no avanço do uso de microrganismos (bioinsumos) no campo, reduzindo o impacto ambiental e mitigando flutuações econômicas.
 
-## 🎯 Objetivo
-Informar e engajar o público sobre o papel protagonista do Brasil no cenário agro-tecnológico global, demonstrando benefícios práticos da IA e convidando para um seminário educacional.
+## 🎯 Objetivo da Página
+Apresentar de forma visualmente rica, limpa e futurista dados que comprovem a evolução digital do setor agrícola do Brasil, instruindo sobre os benefícios da IA através de blocos interativos e capturando leads interessados através de um seminário online estruturado.
 
 ## 🛠️ Instruções de Uso
-1. **Visualização:** Abra o arquivo `index.html` em qualquer navegador moderno.
-2. **Imagens:** O layout reserva espaços Premium para as imagens. Para um visual completo, adicione arquivos chamados `Foto1.png`, `Foto2.png` e `Foto3.png` na mesma pasta do projeto.
-3. **Acessibilidade:** Utilize o menu flutuante à esquerda para ajustar o tamanho do texto, alternar para o modo escuro ou ouvir o conteúdo via áudio (ideal para deficientes visuais).
-4. **Interatividade:**
-   - Explore o **Accordion** para ler sobre os benefícios da IA.
-   - Participe do **Mini Game** para entender ludicamente a importância dos microrganismos.
-   - Inscreva-se no formulário à direita para receber atualizações.
-
-## 💡 Tecnologias Utilizadas
-- HTML5 Semântico
-- CSS3 (Custom Properties, Grid, Flexbox, Animations)
-- JavaScript Vanilla (SpeechSynthesis API, DOM Manipulation)
-- Google Fonts (Design futurista)
+1. **Instalação:** Salve os arquivos `index.html`, `style.css` e `script.js` exatamente dentro da mesma pasta de trabalho.
+2. **Arquivos Gráficos:** Para habilitar a renderização das fotografias enviadas, salve-as na mesma pasta com os nomes exatos de **`Foto1.png`** e **`Foto2.png`**.
+3. **Menu de Acessibilidade:** Utilize os controles flutuantes dispostos no canto esquerdo da tela para gerenciar as fontes (Aumentar/Diminuir), alternar o tema do site (Claro/Escuro) e reproduzir a sintetização nativa de voz sobre o artigo.
+4. **Mini-Game:** Role a página até a seção final, clique em "Iniciar Jogo" e capture o maior número possível de esferas biológicas dentro do intervalo de tempo.
