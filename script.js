@@ -1,199 +1,111 @@
-// =====================================
-// ACCORDION
-// =====================================
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- ACESSIBILIDADE ---
+    let fontSize = 100;
+    const increaseFont = () => {
+        fontSize += 10;
+        document.documentElement.style.fontSize = `${fontSize}%`;
+    };
+    const decreaseFont = () => {
+        fontSize -= 10;
+        document.documentElement.style.fontSize = `${fontSize}%`;
+    };
 
-const accordionButtons =
-document.querySelectorAll(".accordion-btn");
+    const toggleTheme = () => {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+    };
 
-accordionButtons.forEach((button) => {
+    // Leitura de Voz (TTS)
+    let speech = new SpeechSynthesisUtterance();
+    const startTTS = () => {
+        const textToRead = document.getElementById('main-content').innerText;
+        speech.text = textToRead;
+        speech.lang = 'pt-BR';
+        speech.rate = 1;
+        window.speechSynthesis.speak(speech);
+    };
 
-  button.addEventListener("click", () => {
+    const stopTTS = () => {
+        window.speechSynthesis.cancel();
+    };
 
-    const content =
-    button.nextElementSibling;
+    // --- ACCORDION ---
+    const accHeaders = document.querySelectorAll('.accordion-header');
+    accHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const body = header.nextElementSibling;
+            if (body.style.maxHeight) {
+                body.style.maxHeight = null;
+            } else {
+                document.querySelectorAll('.accordion-body').forEach(b => b.style.maxHeight = null);
+                body.style.maxHeight = body.scrollHeight + "px";
+            }
+        });
+    });
 
-    if (content.style.maxHeight) {
+    // --- MINI GAME: AgroFerti ---
+    const canvas = document.getElementById('game-canvas');
+    const startBtn = document.getElementById('start-game');
+    const scoreDisplay = document.getElementById('score');
+    let score = 0;
+    let gameInterval;
 
-      content.style.maxHeight = null;
+    const createTarget = () => {
+        const target = document.createElement('div');
+        target.classList.add('microorganism');
+        
+        const x = Math.random() * (canvas.clientWidth - 40);
+        const y = Math.random() * (canvas.clientHeight - 40);
+        
+        target.style.left = `${x}px`;
+        target.style.top = `${y}px`;
 
-    } else {
+        target.addEventListener('click', () => {
+            score++;
+            scoreDisplay.innerText = `Pontos: ${score}`;
+            target.remove();
+        });
 
-      content.style.maxHeight =
-      content.scrollHeight + "px";
+        canvas.appendChild(target);
 
-    }
+        // Remove se não clicar em 2 segundos
+        setTimeout(() => { if(target) target.remove(); }, 2000);
+    };
 
-  });
+    startBtn.addEventListener('click', () => {
+        score = 0;
+        scoreDisplay.innerText = `Pontos: 0`;
+        startBtn.innerText = "Reiniciar";
+        if(gameInterval) clearInterval(gameInterval);
+        gameInterval = setInterval(createTarget, 800);
+        setTimeout(() => {
+            clearInterval(gameInterval);
+            alert(`Fim de jogo! Você fertilizou o solo com ${score} microrganismos.`);
+        }, 15000);
+    });
 
+    // --- COMENTÁRIOS ---
+    const sendComment = document.getElementById('send-comment');
+    const display = document.getElementById('display-comments');
+    const textArea = document.getElementById('user-comment');
+
+    sendComment.addEventListener('click', () => {
+        if(textArea.value.trim() !== "") {
+            const div = document.createElement('div');
+            div.className = 'stat-card';
+            div.style.marginTop = '10px';
+            div.style.textAlign = 'left';
+            div.innerHTML = `<p>"${textArea.value}"</p><small>Enviado agora</small>`;
+            display.prepend(div);
+            textArea.value = "";
+        }
+    });
+
+    // Event Listeners Acessibilidade
+    document.getElementById('btn-increase-font').addEventListener('click', increaseFont);
+    document.getElementById('btn-decrease-font').addEventListener('click', decreaseFont);
+    document.getElementById('btn-toggle-theme').addEventListener('click', toggleTheme);
+    document.getElementById('btn-tts').addEventListener('click', startTTS);
+    document.getElementById('btn-stop-tts').addEventListener('click', stopTTS);
 });
-
-// =====================================
-// TEMA ESCURO / CLARO
-// =====================================
-
-const toggleTema =
-document.getElementById("toggleTema");
-
-toggleTema.addEventListener("click", () => {
-
-  document.body.classList.toggle("light");
-
-  if (document.body.classList.contains("light")) {
-
-    toggleTema.textContent = "☀️";
-
-  } else {
-
-    toggleTema.textContent = "🌙";
-
-  }
-
-});
-
-// =====================================
-// AUMENTAR / DIMINUIR FONTE
-// =====================================
-
-let tamanhoFonte = 16;
-
-const aumentarFonte =
-document.getElementById("aumentarFonte");
-
-const diminuirFonte =
-document.getElementById("diminuirFonte");
-
-aumentarFonte.addEventListener("click", () => {
-
-  tamanhoFonte += 1;
-
-  document.documentElement.style.fontSize =
-  tamanhoFonte + "px";
-
-});
-
-diminuirFonte.addEventListener("click", () => {
-
-  tamanhoFonte -= 1;
-
-  if (tamanhoFonte < 12) {
-    tamanhoFonte = 12;
-  }
-
-  document.documentElement.style.fontSize =
-  tamanhoFonte + "px";
-
-});
-
-// =====================================
-// LEITURA POR VOZ
-// =====================================
-
-const lerConteudo =
-document.getElementById("lerConteudo");
-
-const pararLeitura =
-document.getElementById("pararLeitura");
-
-let fala;
-
-lerConteudo.addEventListener("click", () => {
-
-  speechSynthesis.cancel();
-
-  const principal =
-  document.querySelector(".conteudo-principal");
-
-  const texto =
-  principal.innerText;
-
-  fala =
-  new SpeechSynthesisUtterance(texto);
-
-  fala.lang = "pt-BR";
-  fala.rate = 1;
-  fala.pitch = 1;
-
-  speechSynthesis.speak(fala);
-
-});
-
-pararLeitura.addEventListener("click", () => {
-
-  speechSynthesis.cancel();
-
-});
-
-// =====================================
-// MINI GAME - AGROFORTE
-// =====================================
-
-const scoreElement =
-document.getElementById("score");
-
-const gameBtn =
-document.getElementById("gameBtn");
-
-let score = 0;
-
-if (gameBtn && scoreElement) {
-
-  gameBtn.addEventListener("click", () => {
-
-    // Valor aleatório de produção
-    const ganho =
-    Math.floor(Math.random() * 15) + 1;
-
-    score += ganho;
-
-    // Atualiza pontuação
-    scoreElement.textContent = score;
-
-    // Animação do botão
-    gameBtn.classList.add("ativo");
-
-    // Mensagem dinâmica
-    if (ganho >= 10) {
-
-      gameBtn.textContent =
-      `Excelente colheita +${ganho} 🌾`;
-
-    } else {
-
-      gameBtn.textContent =
-      `Produção +${ganho} 🚜`;
-
-    }
-
-    // Vitória sustentável
-    if (score >= 100) {
-
-      gameBtn.textContent =
-      "Meta sustentável alcançada 🌱";
-
-      gameBtn.disabled = true;
-
-      setTimeout(() => {
-
-        alert(
-          "Parabéns! Sua produção sustentável atingiu o máximo de eficiência."
-        );
-
-      }, 300);
-
-    }
-
-    // Retorno visual
-    setTimeout(() => {
-
-      if (score < 100) {
-
-        gameBtn.textContent =
-        "Cultivar 🌱";
-
-      }
-
-      gameBtn.classList.remove("ativo");
-
-    }, 1200);
-
-  });
