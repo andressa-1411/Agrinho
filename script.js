@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. SCRIPT DE CONTAGEM PROGRESSIVA DAS PORCENTAGENS ---
+    // --- 1. SCRIPT CORRIGIDO DE CONTAGEM PROGRESSIVA DAS PORCENTAGENS ---
     const runCounters = () => {
         const counters = document.querySelectorAll('.counter');
         
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             counter.innerText = '0';
             const target = parseInt(counter.getAttribute('data-target'), 10);
             let current = 0;
-            const step = target / 30; // Velocidade da transição
+            const step = target / 30; // Controla a suavidade da subida
 
             const updateNumber = setInterval(() => {
                 current += step;
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // Roda imediatamente no carregamento da janela
+    // Dispara a contagem das porcentagens imediatamente de forma segura
     runCounters();
 
 
@@ -44,10 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. ALTERNAR TEMA DE CORES COM ANIMAÇÃO ---
+    // --- 3. ALTERNAR TEMA DE CORES (CLARO / ESCURO) ---
     const btnToggleTheme = document.getElementById('btn-toggle-theme');
     btnToggleTheme.addEventListener('click', () => {
-        document.body.style.transition = "background-color 0.4s ease, color 0.4s ease";
         if (document.body.classList.contains('light-mode')) {
             document.body.classList.replace('light-mode', 'dark-mode');
         } else {
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 4. CONTROLE DE TAMANHO DA FONTE ---
+    // --- 4. CONTROLE DE ACESSIBILIDADE DE FONTE ---
     let fontPercentage = 100;
     document.getElementById('btn-increase-font').addEventListener('click', () => {
         fontPercentage += 8;
@@ -71,13 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 5. LEITURA EM VOZ ALTA (SPEECH SYNTHESIS API) ---
+    // --- 5. LEITURA EM VOZ ALTA (SPEECH SYNTHESIS) ---
     const btnTTS = document.getElementById('btn-tts');
     const btnStopTTS = document.getElementById('btn-stop-tts');
     let speechTrack = null;
 
     btnTTS.addEventListener('click', () => {
-        window.speechSynthesis.cancel(); // Evita empilhamento de vozes
+        window.speechSynthesis.cancel(); // Evita sobreposição de áudio
         const contentText = document.getElementById('conteudo').innerText;
         speechTrack = new SpeechSynthesisUtterance(contentText);
         speechTrack.lang = 'pt-BR';
@@ -90,27 +89,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 6. NOVO GAME: SIMULADOR DE TOMADA DE DECISÃO "SAFRA SUSTENTÁVEL" ---
+    // --- 6. MINI GAME: SIMULADOR DE TOMADA DE DECISÃO "SAFRA SUSTENTÁVEL" ---
     const cropScenarios = [
         {
-            text: "Cenário 1: Sensores apontam infestação biológica de lagartas no talhão oeste. O que fazer?",
+            text: "Cenário 1: Sensores do painel Agri Sustentável apontam infestação de lagartas no talhão oeste. O que fazer?",
             options: [
                 { text: "Liberar drones com bioinsumos e microvespas parasitoides (Controle Biológico).", prod: 15, sust: 20 },
                 { text: "Aplicar pulverização química uniforme de largo espectro em toda a área.", prod: 20, sust: -30 }
             ]
         },
         {
-            text: "Cenário 2: A IA emite alerta de estiagem severa pelos próximos 12 dias consecutivos.",
+            text: "Cenário 2: O satélite meteorológico emite alerta de estiagem severa pelos próximos 12 dias consecutivos.",
             options: [
                 { text: "Acionar gotejamento inteligente monitorado por dados de umidade radicular.", prod: 15, sust: 15 },
-                { text: "Ligar a irrigação contínua por aspersão convencional com capacidade máxima.", prod: 5, sust: -25 }
+                { text: "Ligar a irrigação contínua por aspersão convencional com capacidade máxima de bombeamento.", prod: 5, sust: -25 }
             ]
         },
         {
-            text: "Cenário 3: Área degradada identificada na propriedade precisa entrar em produção.",
+            text: "Cenário 3: Uma área degradada e antiga da propriedade precisa entrar em produção comercial neste ano.",
             options: [
-                { text: "Implementar o consórcio ILPF (Integração Lavoura-Pecuária-Floresta) para sequestrar carbono.", prod: 25, sust: 25 },
-                { text: "Limpar o solo rapidamente com maquinário pesado convencional para plantio imediato.", prod: 15, sust: -35 }
+                { text: "Implementar o consórcio ILPF (Integração Lavoura-Pecuária-Floresta) para reter nutrientes e sequestrar carbono.", prod: 25, sust: 25 },
+                { text: "Limpar o solo rapidamente com arado pesado convencional para plantio imediato de monocultura.", prod: 15, sust: -35 }
             ]
         }
     ];
@@ -134,13 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
         choicesWrapper.innerHTML = "";
 
         if (currentProd <= 20 || currentSust <= 20) {
-            scenarioBox.innerHTML = "❌ <strong>Fim de Temporada: Falência de Gestão!</strong> Seus índices caíram abaixo da linha sustentável de 20%. Desenvolva práticas mais integradas!";
+            scenarioBox.innerHTML = "❌ <strong>Fim de Temporada: Falência de Gestão!</strong> Seus índices caíram abaixo do limite sustentável de 20%. Desenvolva práticas mais integradas na próxima safra!";
             btnStartSim.style.display = "inline-block";
             return;
         }
 
         if (currentStage >= cropScenarios.length) {
-            scenarioBox.innerHTML = `🏆 <strong>Safra Concluída com Sucesso!</strong> Parabéns! Você consolidou uma fazenda com ${currentProd}% de Produtividade e ${currentSust}% de Sustentabilidade, em linha com as diretrizes do Programa Agrinho 2026!`;
+            scenarioBox.innerHTML = `🏆 <strong>Safra Concluída com Sucesso!</strong> Excelente trabalho! Você manteve a fazenda com ${currentProd}% de Produtividade e ${currentSust}% de Sustentabilidade, em linha com o Programa Agrinho 2026!`;
             btnStartSim.style.display = "inline-block";
             return;
         }
