@@ -40,13 +40,18 @@ body.dark-mode {
     color: var(--text-white);
 }
 
-/* Alteração Dinâmica de Cores de Cards */
+/* Modo Escuro para Componentes */
 body.dark-mode .stat-card,
 body.dark-mode .accordion-content,
 body.dark-mode .sim-game-container,
-body.dark-mode .comment-box textarea {
+body.dark-mode .comment-box textarea,
+body.dark-mode .sim-choice-btn {
     background-color: var(--card-dark);
     color: var(--text-white);
+}
+
+body.dark-mode .sim-choice-btn:hover {
+    background-color: var(--primary-blue);
 }
 
 body.dark-mode .accordion-header {
@@ -59,7 +64,7 @@ body.dark-mode .accordion-header {
     margin: 0 auto;
 }
 
-/* Caixa de Acessibilidade Flutuante */
+/* Acessibilidade */
 .accessibility-box {
     position: fixed;
     left: 20px;
@@ -93,7 +98,7 @@ body.dark-mode .accordion-header {
     background: var(--text-white);
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     height: 65vh;
     background: linear-gradient(rgba(0, 64, 128, 0.65), rgba(0, 0, 0, 0.85)), 
@@ -134,7 +139,7 @@ body.dark-mode .accordion-header {
     box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
 }
 
-/* Grid de Estatísticas Animadas */
+/* Números Animados */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -172,7 +177,7 @@ body.dark-mode .accordion-header {
     margin: 10px 0;
 }
 
-/* Layout de Conteúdo e Imagens Requisitadas */
+/* Bloco Informativo Principal */
 .content-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -209,10 +214,16 @@ body.dark-mode .accordion-header {
 }
 
 .imagem:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-/* Componente Accordion */
+/* Ajuste específico para valorizar o painel azul na parte do texto */
+.main-panel-img img {
+    border: 1px solid rgba(0, 64, 128, 0.2);
+    border-radius: var(--radius);
+}
+
+/* Accordion */
 .ia-benefits { margin-bottom: 60px; }
 .paragraph-lead { max-width: 800px; margin: 0 auto 30px auto; }
 .accordion { max-width: 900px; margin: 0 auto; }
@@ -252,14 +263,25 @@ body.dark-mode .accordion-header {
 
 .accordion-content { padding: 20px; line-height: 1.6; }
 
-/* Grid de Mídias e Vídeos */
+/* Galeria Inferior Lado a Lado */
 .media-section { margin-bottom: 60px; }
 .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 25px 0; }
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-.image-gallery .imagem img { height: 420px; }
 
-/* Estrutura Split Interativa */
+.image-gallery-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.image-gallery-dual .imagem img {
+    height: 380px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Área Interativa Split */
 .interaction-split { display: grid; grid-template-columns: 1fr 420px; gap: 40px; margin-bottom: 60px; }
 .comment-box textarea { width: 100%; height: 120px; padding: 15px; border-radius: var(--radius); border: 1px solid rgba(0,0,0,0.1); margin-bottom: 15px; font-family: inherit; resize: none; }
 .form-card { background: var(--primary-blue); color: white; padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -271,7 +293,7 @@ body.dark-mode .accordion-header {
 .btn-tech:hover { background: #002b54; }
 .btn-yellow { background: var(--accent-yellow); color: var(--primary-blue); width: 100%; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-family: 'Orbitron', sans-serif; cursor: pointer; margin-top: 10px; }
 
-/* ARQUITETURA VISUAL DO SIMULADOR DE EVENTOS */
+/* Dashboard Do Simulador Agro */
 .sim-game-container {
     background: #ffffff;
     border: 2px solid var(--primary-blue);
@@ -327,6 +349,7 @@ body.dark-mode .accordion-header {
     font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
+    color: var(--text-black);
 }
 
 .sim-choice-btn:hover {
@@ -335,16 +358,18 @@ body.dark-mode .accordion-header {
     transform: translateX(4px);
 }
 
-/* Rodapé */
+/* Footer */
 .center { text-align: center; }
 .main-footer { background: #000000; color: white; padding: 45px 0; text-align: center; }
 .references a { color: var(--accent-yellow); text-decoration: none; }
 .slogan { margin-top: 15px; font-size: 1.1rem; color: #cccccc; }
 
+/* Responsividade */
 @media (max-width: 1024px) {
     .content-block, .interaction-split, .video-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+    .image-gallery-dual { grid-template-columns: 1fr; }
     .accessibility-box { left: 10px; top: auto; bottom: 20px; flex-direction: row; transform: none; padding: 8px; border-radius: 20px; }
     .accessibility-box button { width: 38px; height: 38px; font-size: 0.9rem; }
 }
