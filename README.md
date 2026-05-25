@@ -1,13 +1,13 @@
-# Agroforte, Futuro Sustentável
+# Agroforte, Futuro Sustentável - Plataforma Corporativa
 
 ## 📡 Tema da Página
-A plataforma aborda a liderança tecnológica e sustentável da agricultura brasileira. O foco central está no uso de Inteligência Artificial e no avanço do uso de microrganismos (bioinsumos) no campo, reduzindo o impacto ambiental e mitigando flutuações econômicas.
+A plataforma apresenta o protagonismo do Brasil no cenário internacional do agronegócio por meio da junção de alta eficiência, Inteligência Artificial e bioinsumos baseados em microrganismos protetores do solo.
 
 ## 🎯 Objetivo da Página
-Apresentar de forma visualmente rica, limpa e futurista dados que comprovem a evolução digital do setor agrícola do Brasil, instruindo sobre os benefícios da IA através de blocos interativos e capturando leads interessados através de um seminário online estruturado.
+Educar produtores e investidores sobre os benefícios sustentáveis e financeiros obtidos através do uso correto da IA no campo, capturando leads qualificados para um seminário estratégico.
 
-## 🛠️ Instruções de Uso
-1. **Instalação:** Salve os arquivos `index.html`, `style.css` e `script.js` exatamente dentro da mesma pasta de trabalho.
-2. **Arquivos Gráficos:** Para habilitar a renderização das fotografias enviadas, salve-as na mesma pasta com os nomes exatos de **`Foto1.png`** e **`Foto2.png`**.
-3. **Menu de Acessibilidade:** Utilize os controles flutuantes dispostos no canto esquerdo da tela para gerenciar as fontes (Aumentar/Diminuir), alternar o tema do site (Claro/Escuro) e reproduzir a sintetização nativa de voz sobre o artigo.
-4. **Mini-Game:** Role a página até a seção final, clique em "Iniciar Jogo" e capture o maior número possível de esferas biológicas dentro do intervalo de tempo.
+## 🛠️ Instruções de Uso e Configuração
+1. **Instalação:** Baixe e salve os arquivos `index.html`, `style.css` e `script.js` exatamente na mesma pasta do seu ambiente.
+2. **Imagens anexas:** Para que o site exiba corretamente as duas imagens que você enviou, salve o arquivo do painel digital com o nome **`Foto1.png`** e o arquivo do milharal jovem com o nome **`Foto2.png`** na raiz do projeto.
+3. **Animações Dinâmicas:** Ao entrar na página, os contadores de porcentagem disparam sua escala numérica progressiva do 0 ao valor alvo automaticamente.
+4. **Mini-Game Estratégico:** Role até a base do site e acione o painel do simulador para decidir o destino ecológico e comercial de uma colheita real em escala tropical.
