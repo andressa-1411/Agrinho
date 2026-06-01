@@ -1,171 +1,178 @@
+document.addEventListener("DOMContentLoaded", () => {
 
-// ================= HERO CTA =================
-document.getElementById("ctaBtn").addEventListener("click", () => {
-  document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
-});
-
-// ================= ACCORDION =================
-document.querySelectorAll(".accordion-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const panel = btn.nextElementSibling;
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  // ================= CTA =================
+  document.getElementById("ctaBtn")?.addEventListener("click", () => {
+    document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
   });
-});
 
-// ================= DARK MODE =================
-document.getElementById("darkMode").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
+  // ================= DARK MODE =================
+  document.getElementById("darkMode")?.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
 
-// ================= FONT CONTROL =================
-let fontSize = 16;
+  // ================= FONT =================
+  let font = 16;
 
-document.getElementById("fontUp").addEventListener("click", () => {
-  fontSize += 2;
-  document.body.style.fontSize = fontSize + "px";
-});
+  document.getElementById("fontUp")?.addEventListener("click", () => {
+    font = Math.min(font + 2, 24);
+    document.body.style.fontSize = font + "px";
+  });
 
-document.getElementById("fontDown").addEventListener("click", () => {
-  fontSize -= 2;
-  document.body.style.fontSize = fontSize + "px";
-});
+  document.getElementById("fontDown")?.addEventListener("click", () => {
+    font = Math.max(font - 2, 12);
+    document.body.style.fontSize = font + "px";
+  });
 
-// ================= SPEECH API =================
-let speech;
+  // ================= SPEECH =================
+  let speaking = false;
 
-document.getElementById("readPage").addEventListener("click", () => {
-  const text = document.getElementById("mainContent").innerText;
+  document.getElementById("readPage")?.addEventListener("click", () => {
+    if (speaking) return;
 
-  speech = new SpeechSynthesisUtterance(text);
-  speech.lang = "pt-BR";
+    const text = document.getElementById("mainContent")?.innerText || "";
 
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(speech);
-});
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = "pt-BR";
 
-document.getElementById("stopRead").addEventListener("click", () => {
-  window.speechSynthesis.cancel();
-});
+    utter.onend = () => speaking = false;
 
-// ================= COMMENTS =================
-document.getElementById("sendComment").addEventListener("click", () => {
-  const text = document.getElementById("comentario").value;
+    speaking = true;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  });
 
-  if (!text) return;
+  document.getElementById("stopRead")?.addEventListener("click", () => {
+    speaking = false;
+    window.speechSynthesis.cancel();
+  });
 
-  const div = document.createElement("div");
-  div.textContent = "💬 " + text;
-  div.style.marginTop = "10px";
-
-  document.getElementById("comentList").appendChild(div);
-
-  document.getElementById("comentario").value = "";
-});
-
-// ================= CHARTS =================
-
-// Produção
-const ctx1 = document.getElementById("growthChart");
-
-new Chart(ctx1, {
-  type: "line",
-  data: {
-    labels: ["Jan","Fev","Mar","Abr","Mai","Jun"],
-    datasets: [{
-      label: "Produção",
-      data: [10, 18, 15, 28, 35, 42],
-      borderColor: "lime",
-      tension: 0.3
-    }]
-  }
-});
-
-// Clima
-const ctx2 = document.getElementById("weatherChart");
-
-new Chart(ctx2, {
-  type: "bar",
-  data: {
-    labels: ["Temp","Umidade","Chuva","Vento"],
-    datasets: [{
-      label: "Indicadores",
-      data: [30, 65, 40, 25],
-      backgroundColor: "orange"
-    }]
-  }
-});
-
-// ================= MAP =================
-const map = document.getElementById("map");
-
-for (let i = 0; i < 100; i++) {
-  const cell = document.createElement("div");
-  cell.classList.add("cell");
-
-  const r = Math.random();
-
-  if (r < 0.3) cell.style.background = "#8b5a2b"; // solo
-  else if (r < 0.6) cell.style.background = "#2ecc71"; // saudável
-  else cell.style.background = "#7CFC00"; // ótimo
-
-  map.appendChild(cell);
-}
-
-// ================= SENSORES =================
-function updateSensors() {
-  document.getElementById("soil").textContent = (50 + Math.random() * 50).toFixed(1);
-  document.getElementById("temp").textContent = (18 + Math.random() * 15).toFixed(1);
-  document.getElementById("ph").textContent = (5 + Math.random() * 3).toFixed(1);
-}
-
-setInterval(updateSensors, 1500);
-updateSensors();
-
-// ================= AI DECISION =================
-const aiBox = document.getElementById("aiBox");
-
-function aiBrain() {
-  const soil = parseFloat(document.getElementById("soil").textContent);
-  const temp = parseFloat(document.getElementById("temp").textContent);
-
-  let msg = "";
-
-  if (soil < 60) msg += "⚠ Irrigação ativada. ";
-  if (temp > 30) msg += "🔥 Alta temperatura detectada. ";
-  if (soil > 70 && temp < 28) msg += "✅ Condições ideais.";
-
-  aiBox.textContent = msg || "Sistema estável. Nenhuma ação necessária.";
-}
-
-setInterval(aiBrain, 2000);
-
-// ================= MINI GAME =================
-let score = 0;
-let gameInterval;
-
-document.getElementById("startGame").addEventListener("click", () => {
-  score = 0;
-  document.getElementById("score").textContent = "Pontuação: 0";
-
-  gameInterval = setInterval(() => {
-    const plant = document.createElement("div");
-    plant.textContent = "🌱";
-    plant.style.position = "absolute";
-    plant.style.left = Math.random() * 90 + "%";
-    plant.style.top = Math.random() * 90 + "%";
-    plant.style.cursor = "pointer";
-
-    plant.addEventListener("click", () => {
-      score++;
-      document.getElementById("score").textContent = "Pontuação: " + score;
-      plant.remove();
+  // ================= CHARTS =================
+  const p = document.getElementById("chartProduction");
+  if (p) {
+    new Chart(p, {
+      type: "line",
+      data: {
+        labels: ["Jan","Fev","Mar","Abr","Mai","Jun"],
+        datasets: [{
+          label: "Produção",
+          data: [10,20,25,30,45,60],
+          borderColor: "#2ecc71"
+        }]
+      }
     });
+  }
 
-    document.getElementById("field").appendChild(plant);
+  const w = document.getElementById("chartWeather");
+  if (w) {
+    new Chart(w, {
+      type: "bar",
+      data: {
+        labels: ["Temp","Umidade","Chuva","Vento"],
+        datasets: [{
+          label: "Clima",
+          data: [28,70,40,20],
+          backgroundColor: "#f1c40f"
+        }]
+      }
+    });
+  }
 
-    setTimeout(() => plant.remove(), 2000);
+  // ================= MAP =================
+  const map = document.getElementById("map");
 
-  }, 700);
+  if (map) {
+    map.innerHTML = "";
 
-  setTimeout(() => clearInterval(gameInterval), 15000);
+    for (let i = 0; i < 100; i++) {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+
+      const r = Math.random();
+
+      cell.style.background =
+        r < 0.3 ? "#8b5a2b" :
+        r < 0.6 ? "#2ecc71" :
+        "#7CFC00";
+
+      map.appendChild(cell);
+    }
+  }
+
+  // ================= SENSORS =================
+  function updateSensors(){
+    const soil = document.getElementById("soil");
+    const temp = document.getElementById("temp");
+    const ph = document.getElementById("ph");
+
+    if (soil) soil.textContent = (50 + Math.random()*50).toFixed(1);
+    if (temp) temp.textContent = (18 + Math.random()*15).toFixed(1);
+    if (ph) ph.textContent = (5 + Math.random()*3).toFixed(1);
+  }
+
+  setInterval(updateSensors, 1500);
+  updateSensors();
+
+  // ================= AI =================
+  const aiBox = document.getElementById("aiBox");
+
+  function ai(){
+    if (!aiBox) return;
+
+    const soil = parseFloat(document.getElementById("soil")?.textContent || 0);
+    const temp = parseFloat(document.getElementById("temp")?.textContent || 0);
+
+    let msg = "";
+
+    if (soil < 60) msg += "⚠ irrigação necessária. ";
+    if (temp > 30) msg += "🔥 calor alto. ";
+    if (soil > 70 && temp < 28) msg += "✅ perfeito.";
+
+    aiBox.textContent = msg || "Sistema estável.";
+  }
+
+  setInterval(ai, 2000);
+
+  // ================= GAME =================
+  let score = 0;
+  let running = false;
+  let interval;
+
+  const start = document.getElementById("startGame");
+  const field = document.getElementById("field");
+  const scoreBox = document.getElementById("score");
+
+  start?.addEventListener("click", () => {
+    if (running) return;
+
+    running = true;
+    score = 0;
+
+    if (scoreBox) scoreBox.textContent = "0";
+
+    interval = setInterval(() => {
+      const plant = document.createElement("div");
+      plant.textContent = "🌱";
+      plant.style.position = "absolute";
+      plant.style.left = Math.random()*90 + "%";
+      plant.style.top = Math.random()*90 + "%";
+      plant.style.cursor = "pointer";
+
+      plant.onclick = () => {
+        score++;
+        if (scoreBox) scoreBox.textContent = score;
+        plant.remove();
+      };
+
+      field?.appendChild(plant);
+
+      setTimeout(() => plant.remove(), 2000);
+
+    }, 700);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      running = false;
+    }, 15000);
+  });
+
 });
