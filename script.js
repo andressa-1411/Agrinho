@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. SCRIPT CORRIGIDO DE CONTAGEM PROGRESSIVA DAS PORCENTAGENS ---
+    // --- 1. SCRIPT DE CONTAGEM PROGRESSIVA DAS PORCENTAGENS ---
     const runCounters = () => {
         const counters = document.querySelectorAll('.counter');
         
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             counter.innerText = '0';
             const target = parseInt(counter.getAttribute('data-target'), 10);
             let current = 0;
-            const step = target / 30; // Controla a suavidade da subida
+            const step = target / 30;
 
             const updateNumber = setInterval(() => {
                 current += step;
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // Dispara a contagem das porcentagens imediatamente de forma segura
     runCounters();
 
 
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let speechTrack = null;
 
     btnTTS.addEventListener('click', () => {
-        window.speechSynthesis.cancel(); // Evita sobreposição de áudio
+        window.speechSynthesis.cancel();
         const contentText = document.getElementById('conteudo').innerText;
         speechTrack = new SpeechSynthesisUtterance(contentText);
         speechTrack.lang = 'pt-BR';
