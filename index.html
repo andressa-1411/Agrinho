@@ -1,131 +1,195 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgroForte - Futuro Sustentável</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgroFuturo 2026</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
-<!-- Caixa de acessibilidade -->
-<div id="acessibilidade">
-  <button id="aumentarFonte">A+</button>
-  <button id="diminuirFonte">A-</button>
-  <button id="modoEscuro">🌙</button>
-  <button id="lerTexto">🔊</button>
-  <button id="pararLeitura">⏹</button>
-</div>
+<header class="topbar">
+  <h1>AgroFuturo 2026</h1>
+  <nav>
+    <a href="#conteudo">Conteúdo</a>
+    <a href="#form">Inscrição</a>
+    <a href="#game">Mini Game</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="logo">AgroForte</div>
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#estatisticas">Estatísticas</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#galeria">Galeria</a></li>
-    <li><a href="#formulario">Seminário</a></li>
-    <li><a href="#comentarios">Comentários</a></li>
-  </ul>
-</nav>
+<main id="mainContent">
 
-<!-- Hero Section -->
-<section id="hero" class="hero">
-  <div class="hero-content">
-    <h1>AgroForte: Agricultura Sustentável e Tecnológica</h1>
-    <p>Conectando inteligência artificial à produção agrícola de forma inovadora e sustentável.</p>
-    <a href="#formulario" class="btn-cta">Inscreva-se no Seminário</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>Agro Forte, Futuro Sustentável</h2>
+    <p>
+      Integração entre <strong>IA</strong>, inovação digital e o campo para criar uma agricultura eficiente,
+      produtiva e ambientalmente responsável.
+    </p>
+    <button id="ctaBtn">Explorar Inovação</button>
   </div>
 </section>
 
-<!-- Estatísticas animadas -->
-<section id="estatisticas" class="estatisticas">
-  <div class="stat-card">
-    <h3>Novas Techs/Ano</h3>
-    <p class="numero" data-target="4">0</p>
+<!-- CONTEÚDO -->
+<section id="conteudo" class="section">
+
+  <h2>O Agro do Futuro</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Tecnologia e Inovação</h3>
+      <p>Controle biológico e agricultura de precisão.</p>
+    </div>
+
+    <div class="card">
+      <h3>Conservação</h3>
+      <p>Manejo que protege o solo e evita o desmatamento.</p>
+    </div>
+
+    <div class="card">
+      <h3>ILPF</h3>
+      <p>Integração que sequestra carbono e otimiza a terra.</p>
+    </div>
+
+    <div class="card">
+      <h3>ESG & Agrinho</h3>
+      <p>Práticas sociais e governança sustentável.</p>
+    </div>
+
   </div>
-  <div class="stat-card">
-    <h3>Áreas Recuperadas</h3>
-    <p class="numero" data-target="75">0</p>
+
+  <div class="info-text">
+    <p>
+      O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental,
+      utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF).
+    </p>
   </div>
-  <div class="stat-card">
-    <h3>Eficiência Hídrica</h3>
-    <p class="numero" data-target="92">0</p>
+
+  <div class="images-grid">
+
+    <div class="imagem">
+      <img src="Foto1.png" alt="imagem agro tecnologia">
+    </div>
+
+    <div class="imagem">
+      <img src="Foto2.png" alt="imagem campo sustentável">
+    </div>
+
+    <div class="imagem">
+      <img src="Foto3.png" alt="imagem inovação agrícola">
+    </div>
+
   </div>
-  <div class="stat-card">
-    <h3>Compromisso Sustentável</h3>
-    <p class="numero" data-target="100">0</p>
-  </div>
+
 </section>
 
-<!-- Cards informativos -->
-<section id="sobre" class="cards-section">
-  <div class="card">
-    <h2>Tecnologia e Inovação</h2>
-    <p>O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e ILPF.</p>
-  </div>
-  <div class="card">
-    <h2>Conservação do Solo</h2>
-    <p>Manejo que protege o solo e evita o desmatamento, promovendo áreas recuperadas e sustentabilidade a longo prazo.</p>
-  </div>
-  <div class="card">
-    <h2>ESG & Agrinho</h2>
-    <p>Práticas sociais e governança alinhadas com certificações sustentáveis e responsabilidade ambiental.</p>
-  </div>
+<!-- EXPANSÍVEIS -->
+<section class="section">
+  <h2>Detalhes Inteligentes</h2>
 
-  <!-- Accordion avançado -->
   <div class="accordion">
-    <button class="accordion-btn">Mais Detalhes sobre ILPF</button>
-    <div class="accordion-content">
-      <p>Integração Lavoura-Pecuária-Floresta sequestra carbono, otimiza a terra e promove sustentabilidade econômica e ambiental.</p>
+    <button class="accordion-btn">IA no Campo</button>
+    <div class="panel">
+      <p>Uso de inteligência artificial para prever safras, pragas e otimizar produção.</p>
+    </div>
+
+    <button class="accordion-btn">Agricultura de Precisão</button>
+    <div class="panel">
+      <p>Sensores e dados para decisões mais eficientes e sustentáveis.</p>
+    </div>
+
+    <button class="accordion-btn">Sustentabilidade</button>
+    <div class="panel">
+      <p>Redução de impacto ambiental com tecnologia verde.</p>
     </div>
   </div>
 </section>
 
-<!-- Galeria de imagens -->
-<section id="galeria" class="imagens">
-  <div class="imagem"><img src="Foto1.png" alt="Painel digital monitorando plantação"></div>
-  <div class="imagem"><img src="Foto2.png" alt="Tablet com dashboard agrícola"></div>
-  <div class="imagem"><img src="Foto3.png" alt="Planta crescendo ao nascer do sol"></div>
+<!-- VÍDEOS -->
+<section class="section">
+  <h2>Aprenda Mais</h2>
+
+  <div class="videos">
+    <iframe src="https://www.youtube.com/embed/jXYN97GMoGM"></iframe>
+    <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI"></iframe>
+  </div>
 </section>
 
-<!-- Mini Game: Agro Defender -->
-<section class="minigame">
-  <h2>Mini Game: Proteja sua Plantação</h2>
-  <p>Clique nas pragas para proteger suas plantas e pontuar!</p>
-  <canvas id="gameCanvas"></canvas>
-  <p>Pontos: <span id="score">0</span></p>
-</section>
+<!-- FORM -->
+<section id="form" class="form-section">
 
-<!-- Formulário de inscrição -->
-<section id="formulario" class="formulario">
-  <h2>Venha conhecer melhor como a IA pode ser uma aliada do Campo</h2>
-  <form id="seminarioForm">
+  <div class="form-info">
+    <h2>Seminário IA no Campo</h2>
+    <p>Venha conhecer melhor como a IA pode ser uma aliada do Campo.</p>
+    <p>Inscreva-se no nosso seminário on-line.</p>
+  </div>
+
+  <form id="inscricaoForm">
     <input type="text" placeholder="Nome" required>
     <input type="email" placeholder="E-mail" required>
     <input type="text" placeholder="Cidade" required>
     <input type="text" placeholder="Estado" required>
     <input type="text" placeholder="País" required>
-    <button type="submit">Inscreva-se</button>
+
+    <button type="submit">Inscrever-se</button>
   </form>
+
 </section>
 
-<!-- Comentários -->
-<section id="comentarios" class="comentarios">
-  <h2>Interaja conosco</h2>
-  <textarea placeholder="Escreva seu comentário..."></textarea>
-  <button id="enviarComentario">Enviar</button>
-  <ul id="listaComentarios"></ul>
+<!-- COMENTÁRIOS -->
+<section class="section">
+  <h2>Comentários</h2>
+
+  <textarea id="comentario" placeholder="Escreva seu comentário..."></textarea>
+  <button id="sendComment">Enviar</button>
+
+  <div id="comentList"></div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <p>Referências utilizadas:</p>
-  <ul>
-    <li><a href="https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/">Bemagro</a></li>
-    <li><a href="https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html">Agrolink</a></li>
-  </ul>
+<!-- MINI GAME -->
+<section id="game" class="section game">
+  <h2>Mini Game: Colheita Inteligente</h2>
+  <p>Clique nos grãos antes que o tempo acabe.</p>
+
+  <div class="game-area">
+    <div id="score">Pontuação: 0</div>
+    <button id="startGame">Iniciar</button>
+    <div id="field"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ACESSIBILIDADE -->
+<div class="accessibility">
+  <button id="fontUp">A+</button>
+  <button id="fontDown">A-</button>
+  <button id="darkMode">🌙</button>
+  <button id="readPage">🔊</button>
+  <button id="stopRead">⏹</button>
+</div>
+
+<!-- FORM LATERAL -->
+<aside class="side-form">
+  <h3>Inscrição Rápida</h3>
+  <p>Participe do futuro do agro.</p>
+
+  <input placeholder="Nome">
+  <input placeholder="E-mail">
+  <input placeholder="Cidade">
+
+  <button>Enviar</button>
+</aside>
+
+<footer id="contato">
+  <p>Referências:</p>
+  <a href="https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/">BemAgro</a>
+  <a href="https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html">AgroLink</a>
+
   <p>AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável</p>
 </footer>
 
