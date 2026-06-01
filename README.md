@@ -1,13 +1,26 @@
-# Agroforte, Futuro Sustentável - Plataforma Corporativa
+# AgroFuturo 2026: Inteligência Artificial e Produção Sustentável
 
-## 📡 Tema da Página
-A plataforma apresenta o protagonismo do Brasil no cenário internacional do agronegócio por meio da junção de alta eficiência, Inteligência Artificial e bioinsumos baseados em microrganismos protetores do solo.
+## 🌾 Tema da Página Criada
+**Agro forte futuro sustentável: equilíbrio entre produção e meio ambiente.** O projeto foca na intersecção entre a evolução tecnológica (especialmente através de Inteligência Artificial e dados analíticos) e as melhores práticas ecológicas modernas de manejo do campo.
 
 ## 🎯 Objetivo da Página
-Educar produtores e investidores sobre os benefícios sustentáveis e financeiros obtidos através do uso correto da IA no campo, capturando leads qualificados para um seminário estratégico.
+Disseminar conhecimento e engajar profissionais do ecossistema agrícola sobre como as ferramentas digitais podem impulsionar safras sem causar a degradação ambiental. O espaço serve para captar leads e inscrições para um seminário estratégico on-line sobre o futuro do agronegócio.
 
-## 🛠️ Instruções de Uso e Configuração
-1. **Instalação:** Baixe e salve os arquivos `index.html`, `style.css` e `script.js` exatamente na mesma pasta do seu ambiente.
-2. **Imagens anexas:** Para que o site exiba corretamente as duas imagens que você enviou, salve o arquivo do painel digital com o nome **`Foto1.png`** e o arquivo do milharal jovem com o nome **`Foto2.png`** na raiz do projeto.
-3. **Animações Dinâmicas:** Ao entrar na página, os contadores de porcentagem disparam sua escala numérica progressiva do 0 ao valor alvo automaticamente.
-4. **Mini-Game Estratégico:** Role até a base do site e acione o painel do simulador para decidir o destino ecológico e comercial de uma colheita real em escala tropical.
+## 🛠️ Instruções de Uso da Página Criada
+1. **Instalação**: Salve os três códigos fornecidos (`index.html`, `style.css` e `script.js`) no mesmo diretório de sua máquina local.
+2. **Imagens**: Adicione as suas imagens customizadas na mesma pasta, nomeando-as exatamente como:
+   - `Foto1.png`
+   - `Foto2.png`
+   - `Foto3.png`
+3. **Execução**: Dê um clique duplo sobre o arquivo `index.html` para executá-lo nativamente em qualquer navegador moderno.
+4. **Interatividade**:
+   - Clique nos itens da seção **Pilares da Inovação Digital** para expandir as caixas de explicações.
+   - Use o widget flutuante no canto inferior esquerdo (♿) para controlar o tamanho das fontes, mudar o tema da página para Modo Claro/Escuro ou ativar a leitura robótica por voz nativa.
+   - Participe do **Mini Game de Simulação** controlando as decisões da fazenda nos botões interativos para balancear a produtividade e a saúde do solo.
+
+## 📺 Conteúdo Multimídia Integrado (Referências e Vídeos)
+Abaixo estão os materiais de suporte e estudos recomendados sobre inovação no campo:
+
+### 📹 Vídeos Instrutivos Incluídos:
+* [Inteligência Artificial no Campo — Futuro do Agro](https://youtu.be/jXYN97GMoGM?si=0ky1EvM66lQUugTq)
+* [Tecnologia Aplicada à Sustentabilidade Rural](https://youtu.be/-p_9S2mhpiI?si=8XKncA-DsqU8oC1w)
