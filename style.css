@@ -1,62 +1,110 @@
 :root{
   --azul:#0a3d62;
   --azul-claro:#38a3ff;
+  --azul-metal:#1b4f72;
   --verde:#2ecc71;
   --amarelo:#f1c40f;
   --ouro:#d4af37;
-  --preto:#111;
-  --branco:#fff;
+  --preto:#0b0f14;
+  --branco:#ffffff;
+  --cinza:#1c1f26;
+}
+
+*{
+  box-sizing:border-box;
 }
 
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background: var(--branco);
-  color: var(--preto);
+  font-family:Arial, sans-serif;
+  background:var(--branco);
+  color:var(--preto);
   transition:0.3s;
 }
 
+/* ================= TOPBAR ================= */
 .topbar{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px;
   background:var(--azul);
   color:white;
   flex-wrap:wrap;
 }
 
-nav a{
+.topbar nav a{
   color:white;
   margin:0 10px;
   text-decoration:none;
+  font-weight:bold;
 }
 
+/* ================= HERO ================= */
 .hero{
   height:60vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(120deg,var(--azul),var(--verde));
-  color:white;
   text-align:center;
+  background:linear-gradient(135deg,var(--azul),var(--verde));
+  color:white;
   padding:20px;
 }
 
 .hero button{
-  padding:10px 20px;
+  padding:12px 25px;
   border:none;
+  border-radius:10px;
   background:var(--ouro);
   cursor:pointer;
-  border-radius:10px;
+  font-weight:bold;
 }
 
+/* ================= SECTIONS ================= */
 .section{
   padding:40px;
 }
 
+/* ================= DASHBOARD ================= */
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.panel{
+  background:var(--cinza);
+  color:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.panel.full{
+  grid-column:span 2;
+}
+
+/* ================= MAP ================= */
+#map{
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:4px;
+  height:300px;
+}
+
+.cell{
+  width:100%;
+  padding-top:100%;
+  border-radius:4px;
+  transition:0.3s;
+  opacity:0.85;
+}
+
+/* ================= CARDS ================= */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
 
@@ -67,16 +115,18 @@ nav a{
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* ================= IMAGES ================= */
 .images-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
+  margin-top:20px;
 }
 
 .imagem img{
   width:100%;
   border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
   transition:0.3s;
 }
 
@@ -84,47 +134,27 @@ nav a{
   transform:scale(1.05);
 }
 
-.form-section{
-  display:flex;
-  justify-content:space-between;
-  padding:40px;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-form{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-input, textarea{
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-
-button{
-  padding:10px;
-  background:var(--verde);
-  color:white;
+/* ================= ACCORDION ================= */
+.accordion-btn{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
   border:none;
+  background:var(--azul-claro);
+  color:white;
   border-radius:10px;
   cursor:pointer;
 }
 
-.accordion-btn{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-}
-
-.panel{
+.panel-box{
   display:none;
   padding:10px;
   background:#eee;
+  border-radius:10px;
+  margin-bottom:10px;
 }
 
+/* ================= VIDEOS ================= */
 .videos{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -133,36 +163,86 @@ button{
 
 iframe{
   width:100%;
-  height:200px;
+  height:220px;
   border-radius:10px;
 }
 
+/* ================= FORM ================= */
+.form-section{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:40px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+input{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+button{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:var(--verde);
+  color:white;
+  cursor:pointer;
+}
+
+/* ================= GAME ================= */
+.game{
+  text-align:center;
+}
+
+#field{
+  position:relative;
+  height:250px;
+  background:#e6f2e6;
+  border-radius:10px;
+  margin-top:10px;
+  overflow:hidden;
+}
+
+/* ================= ACCESSIBILITY ================= */
 .accessibility{
   position:fixed;
   bottom:20px;
   right:20px;
   display:flex;
   flex-direction:column;
-  gap:5px;
+  gap:6px;
 }
 
-.side-form{
-  position:fixed;
-  top:30%;
-  right:0;
-  background:var(--azul-claro);
-  padding:15px;
-  border-radius:10px 0 0 10px;
+.accessibility button{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--azul);
   color:white;
-}
-
-.game{
+  padding:20px;
   text-align:center;
 }
 
-#field{
-  height:200px;
-  background:#eee;
-  margin-top:10px;
-  position:relative;
+/* ================= DARK MODE ================= */
+.dark{
+  background:var(--preto);
+  color:white;
+}
+
+.dark .card,
+.dark .panel{
+  background:#1c1f26;
 }
