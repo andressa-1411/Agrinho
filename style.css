@@ -217,10 +217,11 @@ body.dark-mode .accordion-header {
     transform: scale(1.03);
 }
 
-/* Ajuste específico para valorizar o painel azul na parte do texto */
+/* Ajuste específico para o painel de monitoramento */
 .main-panel-img img {
     border: 1px solid rgba(0, 64, 128, 0.2);
     border-radius: var(--radius);
+    max-height: 450px;
 }
 
 /* Accordion */
