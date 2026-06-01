@@ -1,61 +1,80 @@
-// ACORDION
-document.querySelectorAll('.accordion-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+// ACCORDION
+document.querySelectorAll(".accordion-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+
+// DARK MODE
+document.getElementById("darkMode").addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+});
+
+// FONT SIZE
+let font = 16;
+
+document.getElementById("fontUp").addEventListener("click",()=>{
+  font += 2;
+  document.body.style.fontSize = font + "px";
+});
+
+document.getElementById("fontDown").addEventListener("click",()=>{
+  font -= 2;
+  document.body.style.fontSize = font + "px";
+});
+
+// SPEECH SYNTHESIS
+let speech;
+
+document.getElementById("readPage").addEventListener("click",()=>{
+  const text = document.getElementById("mainContent").innerText;
+  speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "pt-BR";
+  window.speechSynthesis.speak(speech);
+});
+
+document.getElementById("stopRead").addEventListener("click",()=>{
+  window.speechSynthesis.cancel();
+});
+
+// COMMENTS
+document.getElementById("sendComment").addEventListener("click",()=>{
+  const text = document.getElementById("comentario").value;
+  const div = document.createElement("div");
+  div.textContent = text;
+  document.getElementById("comentList").appendChild(div);
+});
+
+// MINI GAME
+let score = 0;
+let gameInterval;
+
+document.getElementById("startGame").addEventListener("click",()=>{
+  score = 0;
+  document.getElementById("score").textContent = "Pontuação: 0";
+
+  gameInterval = setInterval(()=>{
+    const grain = document.createElement("div");
+    grain.textContent = "🌱";
+    grain.style.position = "absolute";
+    grain.style.left = Math.random()*90 + "%";
+    grain.style.top = Math.random()*90 + "%";
+    grain.style.cursor = "pointer";
+
+    grain.addEventListener("click",()=>{
+      score++;
+      document.getElementById("score").textContent = "Pontuação: " + score;
+      grain.remove();
     });
-});
 
-// ACESSIBILIDADE
-const body = document.body;
-const aumentar = document.getElementById('aumentarFonte');
-const diminuir = document.getElementById('diminuirFonte');
-const escuro = document.getElementById('modoEscuro');
-const ler = document.getElementById('lerTexto');
-const parar = document.getElementById('pararLeitura');
+    document.getElementById("field").appendChild(grain);
 
-aumentar.addEventListener('click', () => {
-    body.style.fontSize = 'clamp(1.2rem, 2vw, 1.6rem)';
-});
-diminuir.addEventListener('click', () => {
-    body.style.fontSize = 'clamp(0.8rem, 1.5vw, 1rem)';
-});
-escuro.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-});
+    setTimeout(()=>grain.remove(),2000);
 
-// LEITURA DE VOZ
-ler.addEventListener('click', () => {
-    const texto = document.querySelector('.hero').innerText + ' ' +
-                  Array.from(document.querySelectorAll('.card')).map(c => c.innerText).join(' ');
-    const utterance = new SpeechSynthesisUtterance(texto);
-    window.speechSynthesis.speak(utterance);
+  },800);
+
+  setTimeout(()=>{
+    clearInterval(gameInterval);
+  },15000);
 });
-parar.addEventListener('click', () => {
-    window.speechSynthesis.cancel();
-});
-
-// MINI GAME SIMPLES
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-
-let gotas = [];
-for(let i=0;i<5;i++){
-    gotas.push({x: Math.random()*canvas.width, y: 0, dy: Math.random()*2+1});
-}
-
-function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle='blue';
-    gotas.forEach(g=>{
-        ctx.beginPath();
-        ctx.arc(g.x,g.y,10,0,Math.PI*2);
-        ctx.fill();
-        g.y += g.dy;
-        if(g.y>canvas.height) g.y=0;
-    });
-    requestAnimationFrame(draw);
-}
-draw();
