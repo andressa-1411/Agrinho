@@ -6,199 +6,84 @@
   <title>AgroFuturo AI 2026</title>
 
   <link rel="stylesheet" href="style.css"/>
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<!-- ================= TOPBAR ================= -->
+<!-- ================= HEADER ================= -->
 <header class="topbar">
   <h1>🌱 AgroFuturo AI 2026</h1>
+
   <nav>
     <a href="#dashboard">Dashboard</a>
-    <a href="#conteudo">Agro</a>
     <a href="#game">Mini Game</a>
-    <a href="#form">Inscrição</a>
+    <a href="#footer">Referências</a>
   </nav>
 </header>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-text">
+  <div>
     <h2>Agro Forte, Futuro Sustentável</h2>
     <p>
-      Inteligência artificial, sensores e agricultura de precisão trabalhando juntos para um campo mais eficiente e sustentável.
+      Inteligência artificial, sensores e agricultura de precisão transformando o campo em um sistema inteligente e sustentável.
     </p>
-    <button id="ctaBtn">Explorar Sistema</button>
+    <button id="ctaBtn">Explorar Dashboard</button>
   </div>
 </section>
 
+<!-- ================= MAIN ================= -->
 <main id="mainContent">
 
 <!-- ================= DASHBOARD ================= -->
-<section id="dashboard" class="section dashboard">
+<section id="dashboard" class="dashboard">
 
   <div class="panel">
-    <h2>📊 Produção Agrícola</h2>
-    <canvas id="growthChart"></canvas>
+    <h3>📊 Produção Agrícola</h3>
+    <canvas id="chartProduction"></canvas>
   </div>
 
   <div class="panel">
-    <h2>🌦️ Clima Inteligente</h2>
-    <canvas id="weatherChart"></canvas>
+    <h3>🌦️ Clima Inteligente</h3>
+    <canvas id="chartWeather"></canvas>
   </div>
 
   <div class="panel full">
-    <h2>🗺️ Mapa da Plantação</h2>
+    <h3>🗺️ Mapa da Plantação</h3>
     <div id="map"></div>
   </div>
 
-  <div class="panel ai">
-    <h2>🧠 IA Agrícola (Decisões em tempo real)</h2>
-    <div id="aiBox">Inicializando IA...</div>
+  <div class="panel">
+    <h3>🧠 IA Agrícola</h3>
+    <div id="aiBox">Inicializando sistema...</div>
   </div>
 
-  <div class="panel sensors">
-    <h2>📡 Sensores</h2>
-    <ul>
-      <li>Umidade: <span id="soil">--</span>%</li>
-      <li>Temperatura: <span id="temp">--</span>°C</li>
-      <li>pH: <span id="ph">--</span></li>
-    </ul>
+  <div class="panel">
+    <h3>📡 Sensores</h3>
+    <p>Umidade: <span id="soil">--</span>%</p>
+    <p>Temperatura: <span id="temp">--</span>°C</p>
+    <p>pH: <span id="ph">--</span></p>
   </div>
 
-</section>
-
-<!-- ================= CONTEÚDO AGRÍCOLA ================= -->
-<section id="conteudo" class="section">
-
-  <h2>🌾 Agro do Futuro</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Tecnologia e Inovação</h3>
-      <p>Controle biológico e agricultura de precisão.</p>
-    </div>
-
-    <div class="card">
-      <h3>Conservação</h3>
-      <p>Manejo que protege o solo e evita desmatamento.</p>
-    </div>
-
-    <div class="card">
-      <h3>ILPF</h3>
-      <p>Integração Lavoura-Pecuária-Floresta com captura de carbono.</p>
-    </div>
-
-    <div class="card">
-      <h3>ESG & Agrinho</h3>
-      <p>Práticas sociais e governança sustentável.</p>
-    </div>
-
-  </div>
-
-  <p class="info">
-    O agro forte e sustentável baseia-se no equilíbrio entre produtividade e conservação ambiental,
-    usando tecnologias como plantio direto, bioinsumos e ILPF.
-  </p>
-
-  <!-- IMAGENS (placeholders obrigatórios) -->
-  <div class="images-grid">
-
-    <div class="imagem">
-      <img src="Foto1.png" alt="Agro tecnologia">
-    </div>
-
-    <div class="imagem">
-      <img src="Foto2.png" alt="Campo sustentável">
-    </div>
-
-    <div class="imagem">
-      <img src="Foto3.png" alt="Inovação agrícola">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= EXPANSÍVEIS ================= -->
-<section class="section">
-  <h2>🔎 IA e Agricultura</h2>
-
-  <div class="accordion">
-    <button class="accordion-btn">IA no Campo</button>
-    <div class="panel-box">
-      <p>IA prevê pragas, clima e otimiza colheitas automaticamente.</p>
-    </div>
-
-    <button class="accordion-btn">Agricultura de Precisão</button>
-    <div class="panel-box">
-      <p>Uso de dados e sensores para decisões agrícolas inteligentes.</p>
-    </div>
-
-    <button class="accordion-btn">Sustentabilidade</button>
-    <div class="panel-box">
-      <p>Redução de impacto ambiental com tecnologia verde.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= VÍDEOS ================= -->
-<section class="section">
-  <h2>🎥 Aprendizado</h2>
-
-  <div class="videos">
-    <iframe src="https://www.youtube.com/embed/jXYN97GMoGM"></iframe>
-    <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI"></iframe>
-  </div>
-</section>
-
-<!-- ================= FORM ================= -->
-<section id="form" class="form-section">
-
-  <div class="form-info">
-    <h2>Seminário IA no Campo</h2>
-    <p>IA como aliada do campo sustentável.</p>
-  </div>
-
-  <form id="inscricaoForm">
-    <input placeholder="Nome" required>
-    <input placeholder="E-mail" required>
-    <input placeholder="Cidade" required>
-    <input placeholder="Estado" required>
-    <input placeholder="País" required>
-    <button>Inscrever-se</button>
-  </form>
-
-</section>
-
-<!-- ================= COMENTÁRIOS ================= -->
-<section class="section">
-  <h2>💬 Comentários</h2>
-
-  <textarea id="comentario" placeholder="Escreva algo..."></textarea>
-  <button id="sendComment">Enviar</button>
-
-  <div id="comentList"></div>
 </section>
 
 <!-- ================= MINI GAME ================= -->
-<section id="game" class="section game">
-  <h2>🌱 Mini Game: Colheita Inteligente</h2>
-  <p>Clique nos brotos antes que desapareçam.</p>
+<section id="game" class="game">
 
-  <div id="score">Pontuação: 0</div>
-  <button id="startGame">Iniciar</button>
+  <h2>🌱 Mini Game: Colheita Inteligente</h2>
+  <p>Clique nas plantas antes que desapareçam.</p>
+
+  <div id="score">0</div>
+  <button id="startGame">Iniciar Jogo</button>
 
   <div id="field"></div>
+
 </section>
 
 </main>
 
-<!-- ================= ACESSIBILIDADE ================= -->
+<!-- ================= ACCESSIBILITY ================= -->
 <div class="accessibility">
   <button id="fontUp">A+</button>
   <button id="fontDown">A-</button>
@@ -208,14 +93,27 @@
 </div>
 
 <!-- ================= FOOTER ================= -->
-<footer>
-  <p>Referências:</p>
-  <a href="https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/">BemAgro</a>
-  <a href="https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html">AgroLink</a>
+<footer id="footer">
 
-  <p>AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável</p>
+  <p><strong>Referências:</strong></p>
+
+  <p>
+    https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/
+  </p>
+
+  <p>
+    https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html
+  </p>
+
+  <br>
+
+  <p>
+    🌱 AgroFuturo 2026 ° Conectando a inteligência tecnológica à terra de forma sustentável
+  </p>
+
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
