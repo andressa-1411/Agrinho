@@ -1,119 +1,140 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AgroFuturo AI 2026</title>
-
+  <title>AgroFuturo 2026</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="topbar">
-  <h1>🌱 AgroFuturo AI 2026</h1>
-
-  <nav>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#game">Mini Game</a>
-    <a href="#footer">Referências</a>
+<header class="hero" data-main>
+  <nav class="nav">
+    <h1>AgroFuturo 2026</h1>
+    <button id="toggleTheme">Modo</button>
   </nav>
+
+  <div class="hero-content">
+    <h2>Agro forte, futuro sustentável</h2>
+    <p>Equilíbrio entre produção e meio ambiente com IA, inovação e tecnologia no campo.</p>
+    <button class="cta">Explorar soluções</button>
+  </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div>
-    <h2>Agro Forte, Futuro Sustentável</h2>
-    <p>
-      Inteligência artificial, sensores e agricultura de precisão transformando o campo em um sistema inteligente e sustentável.
-    </p>
-    <button id="ctaBtn">Explorar Dashboard</button>
-  </div>
-</section>
+<main class="container">
 
-<!-- ================= MAIN ================= -->
-<main id="mainContent">
+  <!-- CARDS -->
+  <section class="cards">
+    <div class="card">
+      <h3>Tecnologia e Inovação</h3>
+      <p>Controle biológico e agricultura de precisão.</p>
+      <span>+4 Novas Techs/Ano</span>
+    </div>
 
-<!-- ================= DASHBOARD ================= -->
-<section id="dashboard" class="dashboard">
+    <div class="card">
+      <h3>Conservação</h3>
+      <p>Manejo que protege o solo e evita desmatamento.</p>
+      <span>75% Áreas Recuperadas</span>
+    </div>
 
-  <div class="panel">
-    <h3>📊 Produção Agrícola</h3>
-    <canvas id="chartProduction"></canvas>
-  </div>
+    <div class="card">
+      <h3>ILPF</h3>
+      <p>Integração Lavoura-Pecuária-Floresta que sequestra carbono.</p>
+      <span>Alta eficiência</span>
+    </div>
+  </section>
 
-  <div class="panel">
-    <h3>🌦️ Clima Inteligente</h3>
-    <canvas id="chartWeather"></canvas>
-  </div>
+  <!-- IMAGENS -->
+  <section class="imagens">
+    <div class="imagem">
+      <img src="Foto1.png" alt="agro tecnologia 1">
+    </div>
 
-  <div class="panel full">
-    <h3>🗺️ Mapa da Plantação</h3>
-    <div id="map"></div>
-  </div>
+    <div class="imagem">
+      <img src="Foto2.png" alt="agro tecnologia 2">
+    </div>
 
-  <div class="panel">
-    <h3>🧠 IA Agrícola</h3>
-    <div id="aiBox">Inicializando sistema...</div>
-  </div>
+    <div class="imagem">
+      <img src="Foto3.png" alt="agro tecnologia 3">
+    </div>
+  </section>
 
-  <div class="panel">
-    <h3>📡 Sensores</h3>
-    <p>Umidade: <span id="soil">--</span>%</p>
-    <p>Temperatura: <span id="temp">--</span>°C</p>
-    <p>pH: <span id="ph">--</span></p>
-  </div>
+  <!-- CONTEÚDO EXPANSÍVEL -->
+  <section class="accordion" data-main>
+    <h2>Mais sobre o Agro Inteligente</h2>
 
-</section>
+    <button class="acc-btn">O que é agro sustentável?</button>
+    <div class="acc-content">
+      O agro forte e sustentável baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF).
+    </div>
 
-<!-- ================= MINI GAME ================= -->
-<section id="game" class="game">
+    <button class="acc-btn">Tecnologia no campo</button>
+    <div class="acc-content">
+      IA, sensores e análise de dados ajudam a reduzir desperdícios e aumentar produtividade.
+    </div>
 
-  <h2>🌱 Mini Game: Colheita Inteligente</h2>
-  <p>Clique nas plantas antes que desapareçam.</p>
+    <button class="acc-btn">ESG & Agrinho</button>
+    <div class="acc-content">
+      Práticas sociais e governança (Programa Agrinho 2026).
+    </div>
+  </section>
 
-  <div id="score">0</div>
-  <button id="startGame">Iniciar Jogo</button>
+  <!-- VÍDEOS -->
+  <section class="videos" data-main>
+    <h2>Conteúdo em vídeo</h2>
 
-  <div id="field"></div>
+    <iframe src="https://www.youtube.com/embed/jXYN97GMoGM" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI" allowfullscreen></iframe>
+  </section>
 
-</section>
+  <!-- MINI GAME -->
+  <section class="game" data-main>
+    <h2>Mini Game: Plantio Inteligente 🌱</h2>
+    <p>Clique nos quadrados para plantar culturas sustentáveis.</p>
+
+    <div id="grid"></div>
+    <p id="score">Score: 0</p>
+  </section>
+
+  <!-- COMENTÁRIOS -->
+  <section class="comments" data-main>
+    <h2>Comentários</h2>
+    <textarea id="commentBox" placeholder="Escreva seu comentário..."></textarea>
+    <button id="sendComment">Enviar</button>
+    <div id="commentList"></div>
+  </section>
 
 </main>
 
-<!-- ================= ACCESSIBILITY ================= -->
+<!-- FORMULÁRIO -->
+<aside class="form" data-main>
+  <h2>Inscrição</h2>
+  <p>Venha conhecer como a IA pode ser aliada do campo.</p>
+
+  <input placeholder="Nome"/>
+  <input placeholder="E-mail"/>
+  <input placeholder="Cidade"/>
+  <input placeholder="Estado"/>
+  <input placeholder="País"/>
+
+  <button>Inscrever-se</button>
+</aside>
+
+<!-- ACESSIBILIDADE -->
 <div class="accessibility">
-  <button id="fontUp">A+</button>
-  <button id="fontDown">A-</button>
-  <button id="darkMode">🌙</button>
-  <button id="readPage">🔊</button>
-  <button id="stopRead">⏹</button>
+  <button id="aPlus">A+</button>
+  <button id="aMinus">A-</button>
+  <button id="dark">🌙</button>
+  <button id="speak">🔊</button>
+  <button id="stop">⛔</button>
 </div>
 
-<!-- ================= FOOTER ================= -->
-<footer id="footer">
-
-  <p><strong>Referências:</strong></p>
-
-  <p>
-    https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/
-  </p>
-
-  <p>
-    https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html
-  </p>
-
-  <br>
-
-  <p>
-    🌱 AgroFuturo 2026 ° Conectando a inteligência tecnológica à terra de forma sustentável
-  </p>
-
+<footer data-main>
+  <p>Referências: BemAgro, Agrolink</p>
+  <p>AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
