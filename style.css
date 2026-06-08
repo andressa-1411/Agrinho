@@ -1007,3 +1007,29 @@ body{
         bottom:190px;
     }
 }
+.particula{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:#43a047;
+    border-radius:50%;
+    opacity:0.4;
+    animation: flutuar linear infinite;
+    z-index:0;
+}
+
+@keyframes flutuar{
+    from{transform:translateY(0);}
+    to{transform:translateY(-100vh);}
+}
+
+#graficoAgro{
+    width:90%;
+    max-width:900px;
+    margin:50px auto;
+    display:block;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
