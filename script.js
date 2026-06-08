@@ -1,206 +1,205 @@
-/* ========================================= */
-/* AGROFUTURO 2026 - SCRIPT CORRIGIDO */
-/* ========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ========================================= */
-    /* ACCORDION */
-    /* ========================================= */
+/* ========================================= */
+/* PARTÍCULAS DE FUNDO */
+/* ========================================= */
 
-    document.querySelectorAll(".accordion-header").forEach(header => {
-        header.addEventListener("click", () => {
+function criarParticulas() {
 
-            const content = header.nextElementSibling;
-            const isOpen = content.style.display === "block";
+    for (let i = 0; i < 40; i++) {
 
-            document.querySelectorAll(".accordion-content")
-                .forEach(c => c.style.display = "none");
+        const p = document.createElement("div");
 
-            content.style.display = isOpen ? "none" : "block";
-        });
-    });
+        p.className = "particula";
 
-    /* ========================================= */
-    /* FORMULÁRIO */
-    /* ========================================= */
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = Math.random() * 100 + "vh";
 
-    const form = document.getElementById("formSeminario");
+        p.style.animationDuration = (Math.random() * 5 + 3) + "s";
 
-    if (form) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Inscrição enviada com sucesso! 🌱 Em breve entraremos em contato.");
-            form.reset();
-        });
+        document.body.appendChild(p);
     }
+}
 
-    /* ========================================= */
-    /* COMENTÁRIOS HUMANIZADOS */
-    /* ========================================= */
+criarParticulas();
 
-    const btnComentario = document.getElementById("enviarComentario");
-    const textarea = document.getElementById("comentario");
-    const listaComentarios = document.getElementById("listaComentarios");
+/* ========================================= */
+/* MINI GAME COM FASES */
+/* ========================================= */
 
-    function criarComentario(texto) {
+let pontos = 0;
+let fase = 1;
 
-        const div = document.createElement("div");
-        div.classList.add("comentario-item");
+const score = document.getElementById("score");
+const resultado = document.getElementById("resultadoGame");
 
-        const hora = new Date().toLocaleTimeString("pt-BR");
+function atualizarFase() {
 
-        div.innerHTML = `
-            <strong>👤 Anônimo do Agro</strong>
-            <p>${texto}</p>
-            <small>🕒 ${hora}</small>
-        `;
+    if (pontos < 30) fase = 1;
+    else if (pontos < 60) fase = 2;
+    else fase = 3;
 
-        return div;
-    }
+    let textoFase = "";
 
-    if (btnComentario) {
+    if (fase === 1) textoFase = "🌱 Missão 1: Saúde do Solo";
+    if (fase === 2) textoFase = "🌦 Missão 2: Clima e Água";
+    if (fase === 3) textoFase = "🌍 Missão 3: Carbono Zero";
 
-        btnComentario.addEventListener("click", () => {
+    resultado.textContent = textoFase;
+}
 
-            const texto = textarea.value.trim();
+function atualizar() {
+    score.textContent = pontos;
+    atualizarFase();
+}
 
-            if (!texto) {
-                alert("Escreva algo antes de enviar 🙂");
-                return;
-            }
+document.querySelectorAll(".game-buttons button").forEach(btn => {
 
-            const comentario = criarComentario(texto);
+    btn.addEventListener("click", () => {
 
-            listaComentarios.prepend(comentario);
+        const txt = btn.textContent;
 
-            textarea.value = "";
-        });
-    }
+        if (txt.includes("Plantio") ||
+            txt.includes("ILPF") ||
+            txt.includes("Bioinsumos") ||
+            txt.includes("Precisão")) {
 
-    /* ========================================= */
-    /* MINI GAME MELHORADO - "GUARDIÕES DO SOLO" */
-    /* ========================================= */
-
-    let pontos = 0;
-
-    const score = document.getElementById("score");
-    const resultado = document.getElementById("resultadoGame");
-
-    const boasPraticas = [
-        "Plantio Direto",
-        "Agricultura de Precisão",
-        "ILPF",
-        "Bioinsumos"
-    ];
-
-    const ruins = [
-        "Desmatamento",
-        "Queimada Ilegal"
-    ];
-
-    function atualizar() {
-        score.textContent = pontos;
-
-        if (pontos >= 40) {
-            resultado.textContent = "🏆 Excelente! Você virou um Guardião do Solo!";
-        } else if (pontos >= 20) {
-            resultado.textContent = "🌱 Muito bem! Você está protegendo o meio ambiente!";
-        } else {
-            resultado.textContent = "Continue escolhendo práticas sustentáveis!";
+            pontos += 10;
         }
+
+        if (txt.includes("Desmatamento") ||
+            txt.includes("Queimada")) {
+
+            pontos -= 15;
+            if (pontos < 0) pontos = 0;
+        }
+
+        atualizar();
+    });
+
+});
+
+/* ========================================= */
+/* RANKING LOCAL */
+/* ========================================= */
+
+function salvarRanking(nome, pontos) {
+
+    let ranking = JSON.parse(localStorage.getItem("rankingAgro")) || [];
+
+    ranking.push({ nome, pontos });
+
+    ranking.sort((a, b) => b.pontos - a.pontos);
+
+    ranking = ranking.slice(0, 5);
+
+    localStorage.setItem("rankingAgro", JSON.stringify(ranking));
+}
+
+/* ========================================= */
+/* IA SIMULADA */
+/* ========================================= */
+
+function iaAgro() {
+
+    let resposta = "";
+
+    if (pontos < 30) {
+        resposta = "🤖 IA: Recomendo aumentar práticas sustentáveis!";
+    } else if (pontos < 60) {
+        resposta = "🤖 IA: Sistema equilibrado. Continue assim!";
+    } else {
+        resposta = "🤖 IA: Excelente! Agro altamente sustentável detectado.";
     }
 
-    document.querySelectorAll(".game-buttons button").forEach(btn => {
+    const div = document.createElement("div");
+    div.className = "comentario-item";
+    div.innerHTML = "<strong>IA do Agro:</strong><p>" + resposta + "</p>";
 
-        btn.addEventListener("click", () => {
+    document.getElementById("listaComentarios").prepend(div);
+}
 
-            const texto = btn.textContent.trim();
+/* ========================================= */
+/* DASHBOARD COM GRÁFICOS */
+/* ========================================= */
 
-            if (boasPraticas.some(p => texto.includes(p))) {
-                pontos += 10;
-                resultado.textContent = "✔ Boa escolha! Sustentabilidade em ação 🌱";
-            }
+const dashboard = document.createElement("div");
+dashboard.id = "dashboard";
 
-            if (ruins.some(r => texto.includes(r))) {
-                pontos -= 10;
-                if (pontos < 0) pontos = 0;
-                resultado.textContent = "❌ Essa ação prejudica o solo e o clima!";
-            }
+dashboard.innerHTML = `
+<h2>📊 Mini Dashboard Agro</h2>
+<div class="dash-grid">
 
-            atualizar();
-        });
-    });
+    <div class="dash-card">
+        <h3>Produção Sustentável</h3>
+        <div class="barra-dash"><div style="width:85%"></div></div>
+    </div>
 
-    /* ========================================= */
-    /* BOAS VINDAS */
-    /* ========================================= */
+    <div class="dash-card">
+        <h3>Redução de Impacto</h3>
+        <div class="barra-dash"><div style="width:70%"></div></div>
+    </div>
 
-    const modal = document.getElementById("mensagemBoasVindas");
-    const fechar = document.getElementById("fecharMensagem");
+    <div class="dash-card">
+        <h3>Adoção Tech</h3>
+        <div class="barra-dash"><div style="width:90%"></div></div>
+    </div>
 
-    if (fechar) {
-        fechar.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    }
+</div>
+`;
 
-    /* ========================================= */
-    /* ACESSIBILIDADE */
-    /* ========================================= */
+document.body.appendChild(dashboard);
 
-    let fontSize = 100;
+/* ========================================= */
+/* ACESSIBILIDADE (CORRIGIDA) */
+/* ========================================= */
 
-    document.getElementById("aumentarFonte").addEventListener("click", () => {
-        fontSize += 10;
-        document.body.style.fontSize = fontSize + "%";
-    });
+let font = 100;
 
-    document.getElementById("diminuirFonte").addEventListener("click", () => {
-        fontSize -= 10;
-        if (fontSize < 70) fontSize = 70;
-        document.body.style.fontSize = fontSize + "%";
-    });
+document.getElementById("aumentarFonte").onclick = () => {
+    font += 10;
+    document.body.style.fontSize = font + "%";
+};
 
-    document.getElementById("alternarTema").addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-    });
+document.getElementById("diminuirFonte").onclick = () => {
+    font -= 10;
+    if (font < 70) font = 70;
+    document.body.style.fontSize = font + "%";
+};
 
-    /* ========================================= */
-    /* LEITURA DE TEXTO (VOZ) */
-    /* ========================================= */
+document.getElementById("alternarTema").onclick = () => {
+    document.body.classList.toggle("dark-mode");
+};
 
-    let fala;
+/* ========================================= */
+/* LEITURA IA */
+/* ========================================= */
 
-    document.getElementById("lerConteudo").addEventListener("click", () => {
+document.getElementById("lerConteudo").onclick = () => {
 
-        const texto = document.getElementById("conteudoLeitura").textContent;
+    const texto = document.getElementById("conteudoLeitura").textContent;
 
-        window.speechSynthesis.cancel();
+    const fala = new SpeechSynthesisUtterance(texto);
+    fala.lang = "pt-BR";
 
-        fala = new SpeechSynthesisUtterance(texto);
-        fala.lang = "pt-BR";
-        fala.rate = 1;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(fala);
+};
 
-        window.speechSynthesis.speak(fala);
-    });
+document.getElementById("pararLeitura").onclick = () => {
+    speechSynthesis.cancel();
+};
 
-    document.getElementById("pararLeitura").addEventListener("click", () => {
-        window.speechSynthesis.cancel();
-    });
+/* ========================================= */
+/* BOTÃO TOPO */
+/* ========================================= */
 
-    /* ========================================= */
-    /* BOTÃO TOPO */
-    /* ========================================= */
+const topo = document.getElementById("btnTopo");
 
-    const topo = document.getElementById("btnTopo");
+window.addEventListener("scroll", () => {
+    topo.style.display = window.scrollY > 400 ? "block" : "none";
+});
 
-    window.addEventListener("scroll", () => {
-        topo.style.display = window.scrollY > 400 ? "block" : "none";
-    });
-
-    topo.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+topo.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 });
