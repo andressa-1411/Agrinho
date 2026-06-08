@@ -1,179 +1,933 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
+
+    <title>Agro Forte • Futuro Sustentável</title>
+
+    <meta name="description"
+        content="Agro Forte Futuro Sustentável - Equilíbrio entre produção agrícola, tecnologia, inteligência artificial e preservação ambiental.">
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
 
-    <div class="acessibilidade-container" aria-label="Ferramentas de Acessibilidade">
-        <button id="btn-aumentar-fonte" title="Aumentar Fonte">A+</button>
-        <button id="btn-diminuir-fonte" title="Diminuir Fonte">A-</button>
-        <button id="btn-alternar-tema" title="Alternar Modo Escuro/Claro">🌓</button>
-        <button id="btn-falar" title="Ouvir Conteúdo">🔊 Ler</button>
-        <button id="btn-parar-fala" title="Parar Leitura">⏹️ Parar</button>
-    </div>
+    <!-- ========================================= -->
+    <!-- ACESSIBILIDADE FLUTUANTE -->
+    <!-- ========================================= -->
 
-    <header>
-        <div class="logo">Agro<span>Futuro</span></div>
+    <aside class="acessibilidade">
+
+        <h3>Acessibilidade</h3>
+
+        <button id="aumentarFonte">
+            A+
+        </button>
+
+        <button id="diminuirFonte">
+            A-
+        </button>
+
+        <button id="alternarTema">
+            🌙 Tema
+        </button>
+
+        <button id="lerConteudo">
+            🔊 Ler
+        </button>
+
+        <button id="pararLeitura">
+            ⏹ Parar
+        </button>
+
+    </aside>
+
+    <!-- ========================================= -->
+    <!-- HEADER -->
+    <!-- ========================================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+            🌱 AgroFuturo 2026
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#inicio">Início</a></li>
+
+                <li><a href="#conteudo">Conteúdo</a></li>
+
+                <li><a href="#videos">Vídeos</a></li>
+
+                <li><a href="#galeria">Galeria</a></li>
+
+                <li><a href="#seminario">Seminário</a></li>
+
+                <li><a href="#minigame">Mini Game</a></li>
+
+                <li><a href="#comentarios">Comentários</a></li>
+
+            </ul>
+
+        </nav>
+
     </header>
 
-    <main id="conteudo-principal">
+    <!-- ========================================= -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================= -->
 
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Agro Forte, Futuro Sustentável</h1>
-                <h2>Equilíbrio perfeito entre produção em alta escala e inteligência artificial no campo.</h2>
-                <p>Descubra como a tecnologia digital e os bioinsumos estão moldando a nova era da agricultura mundial.</p>
-                <a href="#seminario" class="btn-primary">Inscreva-se no Seminário</a>
+    <main id="conteudoPrincipal">
+
+        <!-- HERO -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-texto">
+
+                <span class="tag">
+                    Tecnologia • Sustentabilidade • IA
+                </span>
+
+                <h1>
+                    Agro Forte,
+                    <span>Futuro Sustentável</span>
+                </h1>
+
+                <p>
+
+                    O equilíbrio entre produção agrícola,
+                    preservação ambiental e inovação tecnológica
+                    está transformando o campo.
+
+                    A Inteligência Artificial, a Agricultura de
+                    Precisão e os Sistemas Sustentáveis impulsionam
+                    um novo modelo de desenvolvimento para o agro
+                    brasileiro.
+
+                </p>
+
+                <a href="#conteudo" class="btn-principal">
+                    Explorar Projeto
+                </a>
+
             </div>
+
+            <div class="hero-card">
+
+                <h2>Visão 2026</h2>
+
+                <p>
+
+                    Conectando tecnologia,
+                    inteligência artificial e sustentabilidade
+                    para construir o futuro da agricultura.
+
+                </p>
+
+            </div>
+
         </section>
 
-        <section class="metricas-container">
-            <div class="metricas-grid">
-                <div class="card-metrica">
+        <!-- ========================================= -->
+        <!-- INTRODUÇÃO -->
+        <!-- ========================================= -->
+
+        <section class="introducao">
+
+            <div class="section-title">
+
+                <h2>
+                    Produzir Mais Preservando Mais
+                </h2>
+
+                <p>
+
+                    O agro forte e sustentável baseia-se no
+                    equilíbrio entre alta produtividade e
+                    conservação ambiental.
+
+                </p>
+
+            </div>
+
+            <div class="texto-destaque">
+
+                <p>
+
+                    O agro forte e sustentável baseia-se no equilíbrio
+                    entre alta produtividade e conservação ambiental,
+                    utilizando tecnologias como plantio direto,
+                    bioinsumos e Integração
+                    Lavoura-Pecuária-Floresta (ILPF).
+
+                </p>
+
+                <p>
+
+                    Essa abordagem visa atender à demanda global
+                    por alimentos, reduzir impactos climáticos
+                    e valorizar o produto final com certificações
+                    sustentáveis.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================= -->
+        <!-- CARDS PRINCIPAIS -->
+        <!-- ========================================= -->
+
+        <section class="cards-grid" id="conteudo">
+
+            <article class="card">
+
+                <div class="icone">
+                    🤖
+                </div>
+
+                <h3>
+                    Tecnologia e Inovação
+                </h3>
+
+                <p>
+
+                    Controle biológico,
+                    agricultura de precisão,
+                    sensores inteligentes,
+                    drones e inteligência artificial.
+
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <div class="icone">
+                    🚜
+                </div>
+
+                <h3>
+                    Conservação
+                </h3>
+
+                <p>
+
+                    Manejo que protege o solo,
+                    evita o desmatamento e
+                    reduz impactos ambientais.
+
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <div class="icone">
+                    🌳
+                </div>
+
+                <h3>
+                    ILPF
+                </h3>
+
+                <p>
+
+                    Integração que sequestra carbono
+                    e otimiza o uso da terra.
+
+                </p>
+
+            </article>
+
+            <article class="card">
+
+                <div class="icone">
+                    🌎
+                </div>
+
+                <h3>
+                    ESG & Agrinho
+                </h3>
+
+                <p>
+
+                    Práticas sociais,
+                    ambientais e de governança
+                    alinhadas ao Programa Agrinho 2026.
+
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- ========================================= -->
+        <!-- ESTATÍSTICAS -->
+        <!-- ========================================= -->
+
+        <section class="estatisticas">
+
+            <div class="section-title">
+
+                <h2>
+                    Indicadores do Agro Sustentável
+                </h2>
+
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
                     <h3>+4</h3>
-                    <p><strong>Novas Techs/Ano</strong></p>
-                    <p>Inovações implementadas diretamente na lavoura.</p>
+
+                    <p>
+                        Novas Techs/Ano
+                    </p>
+
                 </div>
-                <div class="card-metrica">
+
+                <div class="stat-card">
+
                     <h3>75%</h3>
-                    <p><strong>Áreas Recuperadas</strong></p>
-                    <p>Solos degradados transformados em áreas altamente produtivas.</p>
+
+                    <p>
+                        Áreas Recuperadas
+                    </p>
+
                 </div>
+
+                <div class="stat-card">
+
+                    <h3>90%</h3>
+
+                    <p>
+                        Eficiência Hídrica
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>100%</h3>
+
+                    <p>
+                        Compromisso Sustentável
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
 
-        <section class="conteudo-info">
-            <div class="info-layout">
-                <div class="texto-bloco">
-                    <h2>Inovação Equilibrada</h2>
-                    <p>O <strong>agro forte e sustentável</strong> baseia-se no equilíbrio entre alta produtividade e conservação ambiental, utilizando tecnologias como plantio direto, bioinsumos e Integração Lavoura-Pecuária-Floresta (ILPF).</p>
-                    <p>Essa abordagem visa atender à demanda global por alimentos, reduzir impactos climáticos e valorizar o produto final com certificações sustentáveis.</p>
+        <!-- ========================================= -->
+        <!-- BARRAS -->
+        <!-- ========================================= -->
 
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header">Tecnologia e Inovação</button>
-                            <div class="accordion-content">
-                                <p>Controle biológico e agricultura de precisão redefinindo o ecossistema rural.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header">Conservação</button>
-                            <div class="accordion-content">
-                                <p>Manejo que protege o solo e evita o desmatamento de forma ativa.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header">ILPF</button>
-                            <div class="accordion-content">
-                                <p>Integração que sequestra carbono, otimiza a terra e diversifica a renda do produtor.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header">ESG & Agrinho</button>
-                            <div class="accordion-content">
-                                <p>Práticas sociais e governança integradas ao campo através do Programa Agrinho 2026.</p>
-                            </div>
-                        </div>
+        <section class="progresso">
+
+            <h2>
+                Desempenho Sustentável
+            </h2>
+
+            <div class="barra">
+
+                <span>
+                    Conservação do Solo
+                </span>
+
+                <div class="progresso-container">
+
+                    <div class="valor barra1">
+                        85%
                     </div>
+
                 </div>
 
-                <aside class="sidebar-form" id="seminario">
-                    <div class="form-container">
-                        <h3>Venha conhecer melhor como a IA pode ser uma aliada do Campo.</h3>
-                        <p>Inscreva-se no nosso seminário on-line.</p>
-                        <form id="cadastro-seminario">
-                            <div class="input-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nome" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="email">E-mail</label>
-                                <input type="email" id="email" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="cidade">Cidade</label>
-                                <input type="text" id="cidade" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="estado">Estado</label>
-                                <input type="text" id="estado" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="pais">País</label>
-                                <input type="text" id="pais" required>
-                            </div>
-                            <button type="submit" class="btn-submit">Garantir Minha Vaga</button>
-                        </form>
+            </div>
+
+            <div class="barra">
+
+                <span>
+                    Agricultura de Precisão
+                </span>
+
+                <div class="progresso-container">
+
+                    <div class="valor barra2">
+                        92%
                     </div>
-                </aside>
-            </div>
-        </section>
 
-        <section class="galeria-imagens">
-            <h2>Tecnologia Aplicada</h2>
-            <div class="imagens-grid">
-                <div class="imagem"> <img src="Foto1.png" alt="Sensores de IA monitorando plantio direto sustentável"> </div>
-                <div class="imagem"> <img src="Foto2.png" alt="Drones agrícolas aplicando controle biológico em lavoura"> </div>
-                <div class="imagem"> <img src="Foto3.png" alt="Sistema de Integração Lavoura Pecuária Floresta com gado e árvores"> </div>
-            </div>
-        </section>
-
-        <section class="videos-section">
-            <h2>O Agro em Movimento</h2>
-            <div class="videos-grid">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/jXYN97GMoGM" title="Vídeo Agro Sustentável 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/-p_9S2mhpiI" title="Vídeo Agro Sustentável 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+
             </div>
+
+            <div class="barra">
+
+                <span>
+                    Redução de Impactos
+                </span>
+
+                <div class="progresso-container">
+
+                    <div class="valor barra3">
+                        80%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ========================================= -->
+        <!-- ACCORDION -->
+        <!-- ========================================= -->
+
+        <section class="accordion-section">
+
+            <div class="section-title">
+                <h2>Saiba Mais</h2>
+                <p>
+                    Clique nos tópicos para conhecer melhor as
+                    tecnologias que estão transformando o agro.
+                </p>
+            </div>
+
+            <div class="accordion">
+
+                <div class="accordion-item">
+
+                    <button class="accordion-header">
+
+                        Agricultura de Precisão
+
+                    </button>
+
+                    <div class="accordion-content">
+
+                        <p>
+
+                            Utiliza sensores, drones, GPS,
+                            inteligência artificial e análise de dados
+                            para aumentar a produtividade,
+                            reduzir desperdícios e melhorar
+                            a tomada de decisão no campo.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-header">
+
+                        Bioinsumos
+
+                    </button>
+
+                    <div class="accordion-content">
+
+                        <p>
+
+                            Alternativa sustentável aos
+                            insumos químicos tradicionais,
+                            contribuindo para o equilíbrio
+                            biológico e a saúde do solo.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+
+                    <button class="accordion-header">
+
+                        Integração Lavoura-Pecuária-Floresta
+
+                    </button>
+
+                    <div class="accordion-content">
+
+                        <p>
+
+                            Sistema que combina agricultura,
+                            pecuária e florestas em uma mesma área,
+                            aumentando a produtividade e
+                            reduzindo impactos ambientais.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="game-section">
-            <div class="game-container">
-                <h2>Mini Game: Desafio Eco-Manejo</h2>
-                <p>Clique nas práticas corretas para equilibrar a sua fazenda tecnológica!</p>
-                <div id="game-box">
-                    <button class="game-option" data-correct="true">Usar Bioinsumos</button>
-                    <button class="game-option" data-correct="false">Desmatar para Expandir</button>
-                    <button class="game-option" data-correct="true">Plantio Direto</button>
-                    <button class="game-option" data-correct="true">Sistema ILPF</button>
-                    <button class="game-option" data-correct="false">Uso Excessivo de Defensivos</button>
-                </div>
-                <div id="game-feedback"></div>
+        <!-- ========================================= -->
+        <!-- GALERIA -->
+        <!-- ========================================= -->
+
+        <section id="galeria" class="galeria">
+
+            <div class="section-title">
+
+                <h2>
+                    Galeria do Agro Tecnológico
+                </h2>
+
+                <p>
+                    Substitua as imagens pelos arquivos desejados.
+                </p>
+
             </div>
+
+            <div class="grid-imagens">
+
+                <div class="imagem">
+                    <img src="Foto1.png" alt="Tecnologia no campo">
+                </div>
+
+                <div class="imagem">
+                    <img src="Foto2.png" alt="Agricultura sustentável">
+                </div>
+
+                <div class="imagem">
+                    <img src="Foto3.png" alt="Inovação agrícola">
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="comentarios-section">
-            <h2>Espaço do Leitor</h2>
-            <div class="comentarios-container">
-                <form id="form-comentario">
-                    <textarea id="texto-comentario" placeholder="Deixe sua opinião ou dúvida sobre o futuro sustentável do agro..." required aria-label="Escreva seu comentário"></textarea>
-                    <button type="submit" class="btn-comentario">Enviar Comentário</button>
+        <!-- ========================================= -->
+        <!-- VIDEOS -->
+        <!-- ========================================= -->
+
+        <section id="videos" class="videos">
+
+            <div class="section-title">
+
+                <h2>
+                    Vídeos Educativos
+                </h2>
+
+                <p>
+                    Conheça mais sobre inovação,
+                    tecnologia e sustentabilidade no agro.
+                </p>
+
+            </div>
+
+            <div class="video-grid">
+
+                <div class="video-card">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/jXYN97GMoGM"
+                        title="Agro Futuro"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <div class="video-card">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/-p_9S2mhpiI"
+                        title="Tecnologia no Agro"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================= -->
+        <!-- FORMULÁRIO -->
+        <!-- ========================================= -->
+
+        <section id="seminario" class="seminario">
+
+            <div class="seminario-texto">
+
+                <h2>
+                    Seminário Online
+                </h2>
+
+                <p>
+
+                    Venha conhecer melhor como a IA
+                    pode ser uma aliada do Campo.
+
+                </p>
+
+                <p>
+
+                    Inscreva-se no nosso seminário
+                    on-line e descubra as principais
+                    tendências da agricultura moderna.
+
+                </p>
+
+            </div>
+
+            <div class="formulario-box">
+
+                <form id="formSeminario">
+
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        required>
+
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                        required>
+
+                    <input
+                        type="text"
+                        placeholder="Cidade"
+                        required>
+
+                    <input
+                        type="text"
+                        placeholder="Estado"
+                        required>
+
+                    <input
+                        type="text"
+                        placeholder="País"
+                        required>
+
+                    <button type="submit">
+
+                        Inscrever-se
+
+                    </button>
+
                 </form>
-                <div id="lista-comentarios">
-                    </div>
+
             </div>
+
+        </section>
+
+        <!-- ========================================= -->
+        <!-- MINI GAME -->
+        <!-- ========================================= -->
+
+        <section id="minigame" class="minigame">
+
+            <div class="section-title">
+
+                <h2>
+                    Mini Game:
+                    Salve o Solo
+                </h2>
+
+                <p>
+
+                    Clique apenas nas ações sustentáveis
+                    para ganhar pontos.
+
+                </p>
+
+            </div>
+
+            <div class="game-container">
+
+                <div class="pontuacao">
+
+                    Pontos:
+                    <span id="score">
+
+                        0
+
+                    </span>
+
+                </div>
+
+                <div class="game-buttons">
+
+                    <button class="correto">
+
+                        🌱 Plantio Direto
+
+                    </button>
+
+                    <button class="errado">
+
+                        🔥 Desmatamento
+
+                    </button>
+
+                    <button class="correto">
+
+                        🚜 Agricultura de Precisão
+
+                    </button>
+
+                    <button class="errado">
+
+                        🪓 Queimada Ilegal
+
+                    </button>
+
+                    <button class="correto">
+
+                        🌳 ILPF
+
+                    </button>
+
+                    <button class="correto">
+
+                        ♻ Bioinsumos
+
+                    </button>
+
+                </div>
+
+                <div id="resultadoGame">
+
+                    Escolha uma ação sustentável.
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================= -->
+        <!-- COMENTÁRIOS -->
+        <!-- ========================================= -->
+
+        <section id="comentarios" class="comentarios">
+
+            <div class="section-title">
+
+                <h2>
+                    Deixe seu Comentário
+                </h2>
+
+            </div>
+
+            <div class="comentario-box">
+
+                <textarea
+                    id="comentario"
+                    placeholder="Digite seu comentário aqui...">
+                </textarea>
+
+                <button id="enviarComentario">
+
+                    Enviar Comentário
+
+                </button>
+
+            </div>
+
+            <div id="listaComentarios">
+
+            </div>
+
+        </section>
+                <!-- ========================================= -->
+        <!-- REFERÊNCIAS -->
+        <!-- ========================================= -->
+
+        <section class="referencias">
+
+            <div class="section-title">
+
+                <h2>
+                    Referências Utilizadas
+                </h2>
+
+            </div>
+
+            <div class="referencias-box">
+
+                <ul>
+
+                    <li>
+                        Bem Agro — Benefícios da Inteligência Artificial no Campo
+                    </li>
+
+                    <li>
+                        https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/
+                    </li>
+
+                    <li>
+                        Agrolink — O Campo Conectado
+                    </li>
+
+                    <li>
+                        https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html
+                    </li>
+
+                    <li>
+                        Conteúdos educacionais sobre Agricultura de Precisão,
+                        ILPF, ESG e Sustentabilidade Rural.
+                    </li>
+
+                </ul>
+
+            </div>
+
         </section>
 
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p class="frase-rodape">AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável</p>
-            <div class="referencias">
-                <span>Referências utilizadas:</span>
-                <a href="https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/" target="_blank">BemAgro</a> | 
-                <a href="https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html" target="_blank">Agrolink</a>
+    <!-- ========================================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================================= -->
+
+    <footer class="rodape">
+
+        <div class="rodape-container">
+
+            <div class="rodape-logo">
+
+                <h2>
+                    🌱 AgroFuturo 2026
+                </h2>
+
             </div>
+
+            <div class="rodape-texto">
+
+                <p>
+
+                    AgroFuturo 2026 ° Conectando a inteligência,
+                    tecnologia à terra de forma sustentável.
+
+                </p>
+
+            </div>
+
+            <div class="rodape-info">
+
+                <p>
+                    Projeto Educacional
+                </p>
+
+                <p>
+                    Agro Forte • Futuro Sustentável
+                </p>
+
+            </div>
+
         </div>
+
     </footer>
 
+    <!-- ========================================= -->
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <!-- ========================================= -->
+
+    <button
+        id="btnTopo"
+        class="btn-topo"
+        aria-label="Voltar ao topo">
+
+        ↑
+
+    </button>
+
+    <!-- ========================================= -->
+    <!-- ALERTA DE BOAS-VINDAS -->
+    <!-- ========================================= -->
+
+    <div id="mensagemBoasVindas"
+        class="mensagem-boas-vindas">
+
+        <div class="mensagem-conteudo">
+
+            <h2>
+                Bem-vindo ao AgroFuturo 2026
+            </h2>
+
+            <p>
+
+                Explore como a tecnologia,
+                a inteligência artificial e a sustentabilidade
+                estão transformando a agricultura moderna.
+
+            </p>
+
+            <button id="fecharMensagem">
+
+                Começar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- ÁREA OCULTA PARA LEITURA POR VOZ -->
+    <!-- ========================================= -->
+
+    <section id="conteudoLeitura"
+        class="sr-only">
+
+        Agro Forte Futuro Sustentável.
+
+        O agro forte e sustentável baseia-se
+        no equilíbrio entre alta produtividade
+        e conservação ambiental.
+
+        Utiliza tecnologias como plantio direto,
+        bioinsumos e Integração Lavoura Pecuária Floresta.
+
+        A inteligência artificial contribui para
+        aumentar a produtividade, reduzir desperdícios
+        e melhorar a tomada de decisões.
+
+        Agricultura de precisão.
+
+        Conservação do solo.
+
+        ESG.
+
+        Sustentabilidade.
+
+        Futuro da agricultura.
+
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SCRIPT -->
+    <!-- ========================================= -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
