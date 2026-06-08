@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 /* ========================================= */
-/* PARTÍCULAS DE FUNDO */
+/* PARTÍCULAS NO FUNDO */
 /* ========================================= */
 
 function criarParticulas() {
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 50; i++) {
 
         const p = document.createElement("div");
 
@@ -14,8 +14,7 @@ function criarParticulas() {
 
         p.style.left = Math.random() * 100 + "vw";
         p.style.top = Math.random() * 100 + "vh";
-
-        p.style.animationDuration = (Math.random() * 5 + 3) + "s";
+        p.style.animationDuration = (Math.random() * 6 + 3) + "s";
 
         document.body.appendChild(p);
     }
@@ -39,13 +38,13 @@ function atualizarFase() {
     else if (pontos < 60) fase = 2;
     else fase = 3;
 
-    let textoFase = "";
+    const fases = {
+        1: "🌱 Missão 1: Solo Saudável",
+        2: "🌦 Missão 2: Clima Inteligente",
+        3: "🌍 Missão 3: Carbono Zero"
+    };
 
-    if (fase === 1) textoFase = "🌱 Missão 1: Saúde do Solo";
-    if (fase === 2) textoFase = "🌦 Missão 2: Clima e Água";
-    if (fase === 3) textoFase = "🌍 Missão 3: Carbono Zero";
-
-    resultado.textContent = textoFase;
+    resultado.textContent = fases[fase];
 }
 
 function atualizar() {
@@ -59,24 +58,25 @@ document.querySelectorAll(".game-buttons button").forEach(btn => {
 
         const txt = btn.textContent;
 
-        if (txt.includes("Plantio") ||
+        if (
+            txt.includes("Plantio") ||
             txt.includes("ILPF") ||
             txt.includes("Bioinsumos") ||
-            txt.includes("Precisão")) {
-
+            txt.includes("Precisão")
+        ) {
             pontos += 10;
         }
 
-        if (txt.includes("Desmatamento") ||
-            txt.includes("Queimada")) {
-
+        if (
+            txt.includes("Desmatamento") ||
+            txt.includes("Queimada")
+        ) {
             pontos -= 15;
             if (pontos < 0) pontos = 0;
         }
 
         atualizar();
     });
-
 });
 
 /* ========================================= */
@@ -97,61 +97,68 @@ function salvarRanking(nome, pontos) {
 }
 
 /* ========================================= */
-/* IA SIMULADA */
+/* IA SIMULADA DO AGRO */
 /* ========================================= */
 
 function iaAgro() {
 
-    let resposta = "";
+    let msg = "";
 
     if (pontos < 30) {
-        resposta = "🤖 IA: Recomendo aumentar práticas sustentáveis!";
+        msg = "⚠ IA: Sistema agrícola instável. Melhore práticas sustentáveis.";
     } else if (pontos < 60) {
-        resposta = "🤖 IA: Sistema equilibrado. Continue assim!";
+        msg = "🤖 IA: Nível médio de sustentabilidade. Progresso detectado.";
     } else {
-        resposta = "🤖 IA: Excelente! Agro altamente sustentável detectado.";
+        msg = "🌍 IA: Agro sustentável otimizado com alta eficiência!";
     }
 
     const div = document.createElement("div");
     div.className = "comentario-item";
-    div.innerHTML = "<strong>IA do Agro:</strong><p>" + resposta + "</p>";
+
+    div.innerHTML = `
+        <strong>🤖 IA do Agro</strong>
+        <p>${msg}</p>
+    `;
 
     document.getElementById("listaComentarios").prepend(div);
 }
 
 /* ========================================= */
-/* DASHBOARD COM GRÁFICOS */
+/* DASHBOARD COM GRÁFICOS REAIS */
 /* ========================================= */
 
-const dashboard = document.createElement("div");
-dashboard.id = "dashboard";
+const ctx = document.createElement("canvas");
+ctx.id = "graficoAgro";
 
-dashboard.innerHTML = `
-<h2>📊 Mini Dashboard Agro</h2>
-<div class="dash-grid">
+document.body.appendChild(ctx);
 
-    <div class="dash-card">
-        <h3>Produção Sustentável</h3>
-        <div class="barra-dash"><div style="width:85%"></div></div>
-    </div>
-
-    <div class="dash-card">
-        <h3>Redução de Impacto</h3>
-        <div class="barra-dash"><div style="width:70%"></div></div>
-    </div>
-
-    <div class="dash-card">
-        <h3>Adoção Tech</h3>
-        <div class="barra-dash"><div style="width:90%"></div></div>
-    </div>
-
-</div>
-`;
-
-document.body.appendChild(dashboard);
+new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: ["Solo", "Clima", "Carbono", "Tecnologia"],
+        datasets: [{
+            label: "Índice de Sustentabilidade",
+            data: [85, 70, 90, 95],
+            backgroundColor: [
+                "#2e7d32",
+                "#42a5f5",
+                "#ffb300",
+                "#1565c0"
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
 
 /* ========================================= */
-/* ACESSIBILIDADE (CORRIGIDA) */
+/* ACESSIBILIDADE */
 /* ========================================= */
 
 let font = 100;
@@ -172,7 +179,7 @@ document.getElementById("alternarTema").onclick = () => {
 };
 
 /* ========================================= */
-/* LEITURA IA */
+/* LEITURA POR VOZ */
 /* ========================================= */
 
 document.getElementById("lerConteudo").onclick = () => {
@@ -200,6 +207,43 @@ window.addEventListener("scroll", () => {
     topo.style.display = window.scrollY > 400 ? "block" : "none";
 });
 
-topo.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+topo.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+/* ========================================= */
+/* COMENTÁRIOS HUMANIZADOS + IA */
+/* ========================================= */
+
+const btnComentario = document.getElementById("enviarComentario");
+const textarea = document.getElementById("comentario");
+const lista = document.getElementById("listaComentarios");
+
+btnComentario.addEventListener("click", () => {
+
+    const texto = textarea.value.trim();
+
+    if (!texto) return;
+
+    const div = document.createElement("div");
+    div.className = "comentario-item";
+
+    div.innerHTML = `
+        <strong>👤 Usuário do Agro</strong>
+        <p>${texto}</p>
+    `;
+
+    lista.prepend(div);
+
+    textarea.value = "";
+
+    setTimeout(iaAgro, 1200);
+});
+
+/* ========================================= */
+/* INICIALIZAÇÃO */
+/* ========================================= */
+
+atualizar();
 
 });
